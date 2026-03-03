@@ -1,4 +1,4 @@
-/* <link rel="stylesheet" href="style.css"> */
+/* <link type="text/css" rel="stylesheet" href="./style.css"> */
 
 <style>
 body {
@@ -21,6 +21,21 @@ table
 @media screen and (min-width: 800px) {
   table {
   width: 750px;}
+}
+
+@media screen and (min-width: 1000px) {
+  table {
+  width: 950px;}
+}
+
+@media screen and (min-width: 1200px) {
+  table {
+  width: 1150px;}
+}
+
+@media screen and (min-width: 1250px) {
+  table {
+  width: 1250px;}
 }
 
 th {

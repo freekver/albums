@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Gui</title>
   <style>body { padding: 0; margin: 0; }</style>
-  <link type="text/css" rel="stylesheet" href="style.css">
+  <link type="text/css" rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -4474,7 +4474,8 @@ var $elm$core$Basics$EQ = {$: 'EQ'};
 var $elm$core$Basics$GT = {$: 'GT'};
 var $elm$core$Basics$LT = {$: 'LT'};
 var $author$project$Gui$None = {$: 'None'};
-var $author$project$Gui$init = {decade: $author$project$Gui$None, query: '', sortState: _List_Nil};
+var $elm$core$Maybe$Nothing = {$: 'Nothing'};
+var $author$project$Gui$init = {decade: $author$project$Gui$None, mark: $elm$core$Maybe$Nothing, query: '', sortState: _List_Nil};
 var $elm$core$Result$Err = function (a) {
 	return {$: 'Err', a: a};
 };
@@ -4501,7 +4502,6 @@ var $elm$core$Basics$add = _Basics_add;
 var $elm$core$Maybe$Just = function (a) {
 	return {$: 'Just', a: a};
 };
-var $elm$core$Maybe$Nothing = {$: 'Nothing'};
 var $elm$core$String$all = _String_all;
 var $elm$core$Basics$and = _Basics_and;
 var $elm$core$Basics$append = _Utils_append;
@@ -5243,7 +5243,7 @@ var $author$project$Gui$update = F2(
 				return _Utils_update(
 					model,
 					{query: str});
-			default:
+			case 'SelectChanged':
 				switch (msg.a) {
 					case 'early':
 						return _Utils_update(
@@ -5298,14 +5298,6563 @@ var $author$project$Gui$update = F2(
 							model,
 							{decade: $author$project$Gui$None});
 				}
+			default:
+				if (msg.a === 'x') {
+					return _Utils_update(
+						model,
+						{
+							mark: $elm$core$Maybe$Just('x')
+						});
+				} else {
+					return _Utils_update(
+						model,
+						{mark: $elm$core$Maybe$Nothing});
+				}
 		}
 	});
+var $author$project$Gui$MarkSelectChanged = function (a) {
+	return {$: 'MarkSelectChanged', a: a};
+};
 var $author$project$Gui$Query = function (a) {
 	return {$: 'Query', a: a};
 };
 var $author$project$Gui$SelectChanged = function (a) {
 	return {$: 'SelectChanged', a: a};
 };
+var $author$project$Tops$get_head = function (l) {
+	if (!l.b) {
+		return '';
+	} else {
+		var x = l.a;
+		var xs = l.b;
+		return x;
+	}
+};
+var $author$project$Tops$mk_mark = function (m) {
+	return (m === '') ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(m);
+};
+var $author$project$Tops$entry = F4(
+	function (m, y, t, a) {
+		return {
+			artist: $author$project$Tops$get_head(a),
+			mark: $author$project$Tops$mk_mark(m),
+			title: t,
+			year: y
+		};
+	});
+var $author$project$Tops$albums = _List_fromArray(
+	[
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1937,
+		'King Of The Delta Blues Singers',
+		_List_fromArray(
+			['Robert Johnson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1957,
+		'Blue Train',
+		_List_fromArray(
+			['John Coltrane'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1957,
+		'Body and Soul',
+		_List_fromArray(
+			['Billie Holiday'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1959,
+		'Kind Of Blue',
+		_List_fromArray(
+			['Miles Davis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1959,
+		'Mingus Ah Um',
+		_List_fromArray(
+			['Charles Mingus'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1959,
+		'What\'d I Say',
+		_List_fromArray(
+			['Ray Charles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1960,
+		'Sketches of Spain',
+		_List_fromArray(
+			['Gil Evans', 'Miles Davis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1960,
+		'The Soul Of Ike & Tina Turner',
+		_List_fromArray(
+			['Ike & Tina Turner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1960,
+		'The Soul of Ike and Tina',
+		_List_fromArray(
+			['Ike & Tina Turner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1961,
+		'Genius + Soul = Jazz',
+		_List_fromArray(
+			['Ray Charles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1963,
+		'In Dreams',
+		_List_fromArray(
+			['Roy Orbison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1963,
+		'The Freewheelin\' Bob Dylan',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1964,
+		'A Hard Day\'s Night (Remastered)',
+		_List_fromArray(
+			['The Beatles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1964,
+		'Ain\'t That Good News',
+		_List_fromArray(
+			['Sam Cooke'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1964,
+		'Another Side Of Bob Dylan',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1964,
+		'I Walk the Line',
+		_List_fromArray(
+			['Johnny Cash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1964,
+		'It Might As Well Be Swing',
+		_List_fromArray(
+			['Frank Sinatra', 'Count Basie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1964,
+		'The Times They Are A-Changin\'',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1965,
+		'A Love Supreme',
+		_List_fromArray(
+			['John Coltrane'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1965,
+		'Bringing It All Back Home',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1965,
+		'Highway 61 Revisited',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1965,
+		'Otis Blue',
+		_List_fromArray(
+			['Otis Redding'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1965,
+		'Rubber Soul (Remastered)',
+		_List_fromArray(
+			['The Beatles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1965,
+		'The Great Otis Redding Sings Soul Ballads',
+		_List_fromArray(
+			['Otis Redding'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'Blonde On Blonde',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'Live 1966 The Royal Albert Hall Concert The Bootleg Series Vol. 4',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'Parsley, Sage, Rosemary And Thyme',
+		_List_fromArray(
+			['Simon & Garfunkel'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'Pet Sounds (Original Mono & Stereo Mix)',
+		_List_fromArray(
+			['The Beach Boys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'River Deep-Mountain High',
+		_List_fromArray(
+			['Ike & Tina Turner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'The Exciting Wilson Pickett',
+		_List_fromArray(
+			['Wilson Pickett'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1966,
+		'Wild Is The Wind',
+		_List_fromArray(
+			['Nina Simone'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'Can You Dig It / I\'m A Whole New Thing',
+		_List_fromArray(
+			['Ural Thomas'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'Forever Changes (2015 Remaster)',
+		_List_fromArray(
+			['Love'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'John Wesley Harding',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'Songs Of Leonard Cohen',
+		_List_fromArray(
+			['Leonard Cohen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'Strange Days',
+		_List_fromArray(
+			['The Doors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'The Doors',
+		_List_fromArray(
+			['The Doors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'The Piper At The Gates Of Dawn [2011 - Remaster] (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1967,
+		'The Velvet Underground & Nico 45th Anniversary',
+		_List_fromArray(
+			['The Velvet Underground', 'Nico'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'A Saucerful Of Secrets (2011 Remaster)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Astral Weeks',
+		_List_fromArray(
+			['Van Morrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'At Folsom Prison',
+		_List_fromArray(
+			['Johnny Cash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Bookends',
+		_List_fromArray(
+			['Simon & Garfunkel'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Cheap Thrills',
+		_List_fromArray(
+			['Big Brother & The Holding Company', 'Janis Joplin'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Creedence Clearwater Revival (Expanded Edition)',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Electric Ladyland',
+		_List_fromArray(
+			['Jimi Hendrix'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Music From Big Pink (Remastered)',
+		_List_fromArray(
+			['The Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'NBC-TV Special (Live)',
+		_List_fromArray(
+			['Elvis Presley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'The Beatles (Remastered)',
+		_List_fromArray(
+			['The Beatles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'Waiting for the Sun',
+		_List_fromArray(
+			['The Doors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1968,
+		'What A Wonderful World',
+		_List_fromArray(
+			['Louis Armstrong'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Abbey Road (Remastered)',
+		_List_fromArray(
+			['The Beatles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Bayou Country (Expanded Edition)',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Dusty In Memphis',
+		_List_fromArray(
+			['Dusty Springfield'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Everybody Knows This Is Nowhere',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Five Leaves Left',
+		_List_fromArray(
+			['Nick Drake'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Green River (Expanded Edition)',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Hot Rats',
+		_List_fromArray(
+			['Frank Zappa'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Led Zeppelin',
+		_List_fromArray(
+			['Led Zeppelin'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Live From Batley Variety Club',
+		_List_fromArray(
+			['Roy Orbison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Nashville Skyline',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Songs From A Room',
+		_List_fromArray(
+			['Leonard Cohen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'The Allman Brothers Band (Deluxe)',
+		_List_fromArray(
+			['Allman Brothers Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'The Soft Parade',
+		_List_fromArray(
+			['The Doors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Then Play On',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Townes Van Zandt',
+		_List_fromArray(
+			['Townes Van Zandt'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1969,
+		'Ummagumma (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'After the Gold Rush (2009 Remaster)',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'All Things Must Pass (Remastered 2014)',
+		_List_fromArray(
+			['George Harrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Bitches Brew',
+		_List_fromArray(
+			['Miles Davis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Cosmo\'s Factory',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Cosmo\'s Factory (40th Anniversary Edition)',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Cosmo\'s Factory (Expanded Edition)',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Curtis (Expanded Edition)',
+		_List_fromArray(
+			['Curtis Mayfield'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Deja Vu',
+		_List_fromArray(
+			['Crosby, Stills, Nash & Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Free Your Mind...',
+		_List_fromArray(
+			['Funkadelic'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Funkadelic',
+		_List_fromArray(
+			['Funkadelic'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Kiln House',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Let It Be (Remastered)',
+		_List_fromArray(
+			['The Beatles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Loaded (2015 Remaster)',
+		_List_fromArray(
+			['The Velvet Underground'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Moondance',
+		_List_fromArray(
+			['Van Morrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Morrison Hotel',
+		_List_fromArray(
+			['The Doors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'New Morning',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Psychedelic Shack',
+		_List_fromArray(
+			['The Temptations'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1970,
+		'Tea For The Tillerman (Remastered 2020)',
+		_List_fromArray(
+			['Yusuf / Cat Stevens'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'4 Way Street',
+		_List_fromArray(
+			['Crosby, Stills, Nash & Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'At Fillmore East',
+		_List_fromArray(
+			['Allman Brothers Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'Hunky Dory (2015 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'John Prine',
+		_List_fromArray(
+			['John Prine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'Just As I Am',
+		_List_fromArray(
+			['Bill Withers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'L.A. Woman',
+		_List_fromArray(
+			['The Doors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'Maggot Brain',
+		_List_fromArray(
+			['Funkadelic'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'Meddle (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'Sticky Fingers (Remastered)',
+		_List_fromArray(
+			['The Rolling Stones'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'There\'s A Riot Goin\' On (Expanded Edition)',
+		_List_fromArray(
+			['Sly & The Family Stone'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'What\'s Going On (Remastered w/Bonus Tracks)',
+		_List_fromArray(
+			['Marvin Gaye'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1971,
+		'What\'s Going On - 40th Anniversary (Super Deluxe)',
+		_List_fromArray(
+			['Marvin Gaye'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'All Directions',
+		_List_fromArray(
+			['The Temptations'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Arriba Huentitan',
+		_List_fromArray(
+			['Vicente Fern√°ndez'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Elvis: As Recorded at Madison Square Garden (Live)',
+		_List_fromArray(
+			['Elvis Presley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Harvest (2009 Remaster)',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'I\'m Still in Love with You',
+		_List_fromArray(
+			['Al Green'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Let\'s Stay Together',
+		_List_fromArray(
+			['Al Green'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Naturally',
+		_List_fromArray(
+			['J.J. Cale'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'On The Corner',
+		_List_fromArray(
+			['Miles Davis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Paul Simon',
+		_List_fromArray(
+			['Paul Simon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Pink Moon',
+		_List_fromArray(
+			['Nick Drake'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Sail Away (Expanded & Remastered Edition)',
+		_List_fromArray(
+			['Randy Newman'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Saint Dominic\'s Preview',
+		_List_fromArray(
+			['Van Morrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Sonneveld',
+		_List_fromArray(
+			['Wim Sonneveld'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Superfly',
+		_List_fromArray(
+			['Curtis Mayfield'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'The Rise and Fall of Ziggy Stardust and the Spiders from Mars (2012 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1972,
+		'Transformer',
+		_List_fromArray(
+			['Lou Reed'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Berlin',
+		_List_fromArray(
+			['Lou Reed'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Closing Time',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Closing Time (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Head Hunters',
+		_List_fromArray(
+			['Herbie Hancock'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Innervisions',
+		_List_fromArray(
+			['Stevie Wonder'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Prokofiev: Romeo and Juliet',
+		_List_fromArray(
+			['Sergei Prokofiev'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'Solid Air (Remastered)',
+		_List_fromArray(
+			['John Martyn'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1973,
+		'The Dark Side Of The Moon (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'..It\'s Too Late to Stop Now...Volume I',
+		_List_fromArray(
+			['Van Morrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'Diamond Dogs',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'Get Up With It',
+		_List_fromArray(
+			['Miles Davis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'On the Beach',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'Planet Waves',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'The Heart Of Saturday Night (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'They Say I\'m Different',
+		_List_fromArray(
+			['Betty Davis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1974,
+		'Veedon Fleece',
+		_List_fromArray(
+			['Van Morrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'An Evening With John Denver',
+		_List_fromArray(
+			['John Denver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Blood On The Tracks',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Born To Run',
+		_List_fromArray(
+			['Bruce Springsteen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Fleetwood Mac',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Fleetwood Mac (2017 Remaster)',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Harry Sacksioni: Gitaar',
+		_List_fromArray(
+			['Harry Sacksioni'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Nighthawks At The Diner (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'The Heat Is On',
+		_List_fromArray(
+			['The Isley Brothers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'The Koln Concert',
+		_List_fromArray(
+			['Keith Jarrett'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Tonight\'s the Night',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Wish You Were Here (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Young Americans',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1975,
+		'Zuma',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Crystal Ball',
+		_List_fromArray(
+			['Styx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Desire',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Eggs & Sausage - Remastered',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Live Nassau Coliseum \'76',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Small Change',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Songs In The Key Of Life',
+		_List_fromArray(
+			['Stevie Wonder'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1976,
+		'Station to Station (2016 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1977,
+		'Heroes (2017 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1977,
+		'Animals (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1977,
+		'Marquee Moon',
+		_List_fromArray(
+			['Television'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1977,
+		'Rumours',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1977,
+		'Talking Heads \'77 (Deluxe Version)',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1977,
+		'The Clash (Remastered)',
+		_List_fromArray(
+			['The Clash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1978,
+		'Adventure',
+		_List_fromArray(
+			['Television'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1978,
+		'Blue Valentine (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1978,
+		'Dire Straits (Remastered)',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1978,
+		'More Songs About Buildings and Food (Deluxe Version)',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1978,
+		'Parallel Lines (Remastered)',
+		_List_fromArray(
+			['Blondie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1978,
+		'Stage (Live 2005 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Communique',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Drums And Wires',
+		_List_fromArray(
+			['XTC'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Fear of Music (Deluxe Version)',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Joe\'s Garage Acts I, II & III',
+		_List_fromArray(
+			['Frank Zappa'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Lodger (2017 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'London Calling (Remastered)',
+		_List_fromArray(
+			['The Clash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Off the Wall',
+		_List_fromArray(
+			['Michael Jackson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Orchestral Favorites',
+		_List_fromArray(
+			['Frank Zappa'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Sheik Yerbouti',
+		_List_fromArray(
+			['Frank Zappa'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Slow Train Coming',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'The Wall (Remastered)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'The Wall [2011 - Remaster] (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Tusk (2015 Remaster)',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Unknown Pleasures',
+		_List_fromArray(
+			['Joy Division'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1979,
+		'Unknown Pleasures (Collector\'s Edition)',
+		_List_fromArray(
+			['Joy Division'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Boy (Remastered)',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Closer',
+		_List_fromArray(
+			['Joy Division'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Colossal Youth',
+		_List_fromArray(
+			['Young Marble Giants'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Heartattack And Vine',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Heartattack And Vine (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Making Movies',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'Remain in Light (Deluxe Version)',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'The Blues Brothers Original Motion Picture Soundtrack',
+		_List_fromArray(
+			['The Blues Brothers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1980,
+		'The River',
+		_List_fromArray(
+			['Bruce Springsteen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1981,
+		'October (Remastered)',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1981,
+		'Street Songs',
+		_List_fromArray(
+			['Rick James'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Avalon',
+		_List_fromArray(
+			['Roxy Music'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Junkyard',
+		_List_fromArray(
+			['The Birthday Party'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Love Over Gold',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Love Over Gold (Remastered)',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Nebraska',
+		_List_fromArray(
+			['Bruce Springsteen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Pornography',
+		_List_fromArray(
+			['The Cure'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1982,
+		'Thriller',
+		_List_fromArray(
+			['Michael Jackson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Hootenanny (Expanded)',
+		_List_fromArray(
+			['The Replacements'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Let\'s Dance (1999 Remaster)',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'London Symphony Orchestra, Vols. I & II',
+		_List_fromArray(
+			['Frank Zappa', 'London Symphony Orchestra'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Murmur',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Power Corruption and Lies',
+		_List_fromArray(
+			['New Order'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Speaking in Tongues (Deluxe Version)',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Swordfishtrombones',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Synchronicity (Remastered 2003)',
+		_List_fromArray(
+			['The Police'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'The Final Cut (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'Under A Blood Red Sky (Remastered)',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1983,
+		'War (Remastered)',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Alchemy: Dire Straits Live',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Alchemy: Dire Straits Live (Remastered)',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Born In The U.S.A.',
+		_List_fromArray(
+			['Bruce Springsteen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Double Nickels on the Dime',
+		_List_fromArray(
+			['Minutemen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Let It Be (Expanded)',
+		_List_fromArray(
+			['The Replacements'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Purple Rain',
+		_List_fromArray(
+			['Prince'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Reckoning',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'Stop Making Sense (Live)',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1984,
+		'The Unforgettable Fire (Deluxe Edition Remastered)',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1985,
+		'Bad Moon Rising',
+		_List_fromArray(
+			['Sonic Youth'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1985,
+		'Boys And Girls',
+		_List_fromArray(
+			['Bryan Ferry'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1985,
+		'Brothers In Arms',
+		_List_fromArray(
+			['Dire Straits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1985,
+		'Fables Of The Reconstruction',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1985,
+		'Meat Is Murder',
+		_List_fromArray(
+			['The Smiths'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1985,
+		'Rain Dogs',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1986,
+		'Blood And Chocolate',
+		_List_fromArray(
+			['Elvis Costello & The Attractions'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1986,
+		'Brotherhood (Collector\'s Edition)',
+		_List_fromArray(
+			['New Order'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1986,
+		'Graceland',
+		_List_fromArray(
+			['Paul Simon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1986,
+		'Graceland (25th Anniversary Deluxe Edition)',
+		_List_fromArray(
+			['Paul Simon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1986,
+		'The Queen Is Dead',
+		_List_fromArray(
+			['The Smiths'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1986,
+		'True Stories',
+		_List_fromArray(
+			['Talking Heads'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'A Momentary Lapse Of Reason (2011 Remastered Version)',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Appetite For Destruction',
+		_List_fromArray(
+			['Guns N\' Roses'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Bad (Remastered)',
+		_List_fromArray(
+			['Michael Jackson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Document (R.E.M. No. 5)',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Franks Wild Years',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Music for the Masses',
+		_List_fromArray(
+			['Depeche Mode'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Sister',
+		_List_fromArray(
+			['Sonic Youth'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'Tango In the Night (Deluxe)',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'The Joshua Tree',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1987,
+		'The Joshua Tree (Remastered)',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1988,
+		'Daydream Nation (Remastered Original Album)',
+		_List_fromArray(
+			['Sonic Youth'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1988,
+		'I\'m Your Man',
+		_List_fromArray(
+			['Leonard Cohen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1988,
+		'Immigres',
+		_List_fromArray(
+			['Youssou N\'Dour'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1988,
+		'Rattle And Hum',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1988,
+		'Surfer Rosa (Remastered)',
+		_List_fromArray(
+			['Pixies'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1988,
+		'Tender Prey (2010 Remastered Version)',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Black & White Night',
+		_List_fromArray(
+			['Roy Orbison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Disintegration (Remastered)',
+		_List_fromArray(
+			['The Cure'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Doolittle',
+		_List_fromArray(
+			['Pixies'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		1989,
+		'Mystery Girl',
+		_List_fromArray(
+			['Roy Orbison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Niemand In De Stad',
+		_List_fromArray(
+			['De Dijk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Pretty Hate Machine',
+		_List_fromArray(
+			['Nine Inch Nails'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Tchaikovsky: Piano Concerto No.1',
+		_List_fromArray(
+			['Tchaikovsky'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1989,
+		'Technique',
+		_List_fromArray(
+			['New Order'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1990,
+		'Het Beste Van Boudewijn De Groot',
+		_List_fromArray(
+			['Boudewijn de Groot'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1990,
+		'Is Dit Nu Later',
+		_List_fromArray(
+			['Stef Bos'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1990,
+		'Still Got The Blues',
+		_List_fromArray(
+			['Gary Moore'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1990,
+		'Violator',
+		_List_fromArray(
+			['Depeche Mode'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Achtung Baby',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Blue Lines (2012 Mix/Master)',
+		_List_fromArray(
+			['Massive Attack'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Dangerous',
+		_List_fromArray(
+			['Michael Jackson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Mississippi Lad',
+		_List_fromArray(
+			['Teddy Edwards'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Nevermind (Remastered)',
+		_List_fromArray(
+			['Nirvana'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Out Of Time',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Proud Mary: The Best Of Ike & Tina Turner',
+		_List_fromArray(
+			['Ike & Tina Turner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Ten',
+		_List_fromArray(
+			['Pearl Jam'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'The Early Years Vol. 1',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'The Soul Cages',
+		_List_fromArray(
+			['Sting'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Use Your Illusion I',
+		_List_fromArray(
+			['Guns N\' Roses'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1991,
+		'Use Your Illusion II',
+		_List_fromArray(
+			['Guns N\' Roses'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Bone Machine',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Bone Machine (2023 Remaster)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Gorky',
+		_List_fromArray(
+			['Gorki'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Live At Wembley Stadium',
+		_List_fromArray(
+			['Queen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Palomine',
+		_List_fromArray(
+			['Bettie Serveert'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Propeller',
+		_List_fromArray(
+			['Guided By Voices'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Selected Ambient Works 85-92',
+		_List_fromArray(
+			['Aphex Twin'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Slanted And Enchanted',
+		_List_fromArray(
+			['Pavement'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1992,
+		'Unplugged (Live)',
+		_List_fromArray(
+			['Eric Clapton'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'August And Everything After',
+		_List_fromArray(
+			['Counting Crows'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Hij Leeft',
+		_List_fromArray(
+			['Gorki'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'In Utero - 20th Anniversary Remaster',
+		_List_fromArray(
+			['Nirvana'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Pablo Honey',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Siamese Dream (2011 - Remaster)',
+		_List_fromArray(
+			['The Smashing Pumpkins'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Ten Summoner\'s Tales',
+		_List_fromArray(
+			['Sting'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'The Early Years Vol. 2',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'The Yellow Shark',
+		_List_fromArray(
+			['Frank Zappa'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'There Is No-One What Will Take Care Of You',
+		_List_fromArray(
+			['Palace Brothers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Unplugged',
+		_List_fromArray(
+			['Neil Young'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Vs.',
+		_List_fromArray(
+			['Pearl Jam'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Wild Wood',
+		_List_fromArray(
+			['Paul Weller'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1993,
+		'Zooropa',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'American Recordings',
+		_List_fromArray(
+			['Johnny Cash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Crooked Rain Crooked Rain',
+		_List_fromArray(
+			['Pavement'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'De Ontmoeting',
+		_List_fromArray(
+			['Frank Boeijen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Dubnobasswithmyheadman (20th Anniversary Remaster)',
+		_List_fromArray(
+			['Underworld'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Dummy',
+		_List_fromArray(
+			['Portishead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Grace',
+		_List_fromArray(
+			['Jeff Buckley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Le Onde',
+		_List_fromArray(
+			['Ludovico Einaudi'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Let Love In (2011 Remastered Version)',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Live in Santa Monica \'72',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'MTV Unplugged In New York',
+		_List_fromArray(
+			['Nirvana'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Out Of Range',
+		_List_fromArray(
+			['Ani DiFranco'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'The Great Subconscious Club',
+		_List_fromArray(
+			['K\'s Choice'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Throwing Copper',
+		_List_fromArray(
+			['Live'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Vitalogy',
+		_List_fromArray(
+			['Pearl Jam'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Welcome To The Cruel World',
+		_List_fromArray(
+			['Ben Harper'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1994,
+		'Worst Case Scenario',
+		_List_fromArray(
+			['dEUS'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Ainda: Original Motion Picture Soundtrack From Lisbon Story',
+		_List_fromArray(
+			['Madredeus'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Alien Lanes',
+		_List_fromArray(
+			['Guided By Voices'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Boulevard (The Complete Series)',
+		_List_fromArray(
+			['St Germain'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Elliott Smith',
+		_List_fromArray(
+			['Elliott Smith'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'HIStory - PAST, PRESENT AND FUTURE - BOOK I',
+		_List_fromArray(
+			['Michael Jackson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Made In Heaven (2011 Remaster)',
+		_List_fromArray(
+			['Queen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Maxinquaye',
+		_List_fromArray(
+			['Tricky'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Mellon Collie And The Infinite Sadness',
+		_List_fromArray(
+			['The Smashing Pumpkins'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Original Soundtracks 1',
+		_List_fromArray(
+			['Passengers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Paradise In Me',
+		_List_fromArray(
+			['K\'s Choice'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Pulse',
+		_List_fromArray(
+			['Pink Floyd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'The Bends',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Timeless',
+		_List_fromArray(
+			['Goldie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1995,
+		'Viva Last Blues',
+		_List_fromArray(
+			['Palace Music'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'American II: Unchained',
+		_List_fromArray(
+			['Johnny Cash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Endtroducing.....',
+		_List_fromArray(
+			['DJ Shadow'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'If You\'re Feeling Sinister',
+		_List_fromArray(
+			['Belle and Sebastian'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Interstate 8',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Lamb',
+		_List_fromArray(
+			['Lamb'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Ludovico Einaudi: Le onde',
+		_List_fromArray(
+			['Ludovico Einaudi'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Monstertje',
+		_List_fromArray(
+			['Gorki'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Murder Ballads (2011 Remastered Version)',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Odelay',
+		_List_fromArray(
+			['Beck'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'Pinkerton',
+		_List_fromArray(
+			['Weezer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1996,
+		'This Is a Long Drive for Someone with Nothing to Think About',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Acda & De Munnik',
+		_List_fromArray(
+			['Acda en de Munnik'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Buena Vista Social Club',
+		_List_fromArray(
+			['Buena Vista Social Club'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Either/Or',
+		_List_fromArray(
+			['Elliott Smith'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'F# A#',
+		_List_fromArray(
+			['Godspeed You! Black Emperor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Homework',
+		_List_fromArray(
+			['Daft Punk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Homogenic',
+		_List_fromArray(
+			['Bjork'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'I Can Hear The Heart Beating As One',
+		_List_fromArray(
+			['Yo La Tengo'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'OK Computer',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Pop',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'The Boatman\'s Call (2011 Remastered Version)',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'The Lonesome Crowded West',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Time Out Of Mind',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1997,
+		'Wyclef Jean presents The Carnival featuring Refugee Allstars (feat. Refugee All Stars)',
+		_List_fromArray(
+			['Wyclef Jean'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'American Water',
+		_List_fromArray(
+			['Silver Jews'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'Cocoon Crash',
+		_List_fromArray(
+			['K\'s Choice'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'I Paint Pictures On A Wedding Dress',
+		_List_fromArray(
+			['Zita Swoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'I See A Darkness',
+		_List_fromArray(
+			['Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'Mezzanine',
+		_List_fromArray(
+			['Massive Attack'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'Moon Safari',
+		_List_fromArray(
+			['Air'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'Music Has The Right To Children',
+		_List_fromArray(
+			['Boards of Canada'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'Naar Huis',
+		_List_fromArray(
+			['Acda en de Munnik'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'Pilgrim',
+		_List_fromArray(
+			['Eric Clapton'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'The Very Best of Solomon Burke',
+		_List_fromArray(
+			['Solomon Burke'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1998,
+		'XO',
+		_List_fromArray(
+			['Elliott Smith'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Emergency & I',
+		_List_fromArray(
+			['Dismemberment Plan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Fear Of Fours',
+		_List_fromArray(
+			['Lamb'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Industrial Silence',
+		_List_fromArray(
+			['Madrugada'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Magnolia (Music from the Motion Picture)',
+		_List_fromArray(
+			['Aimee Mann'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Mule Variations',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Mule Variations (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Summerteeth',
+		_List_fromArray(
+			['Wilco'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'The Ideal Crash',
+		_List_fromArray(
+			['dEUS'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'The Soft Bulletin',
+		_List_fromArray(
+			['The Flaming Lips'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Wildernis',
+		_List_fromArray(
+			['Alex Roeka'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1999,
+		'Agaetis byrjun',
+		_List_fromArray(
+			['Sigur Rós'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'All That You Can\'t Leave Behind',
+		_List_fromArray(
+			['U2'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'American III: Solitary Man',
+		_List_fromArray(
+			['Johnny Cash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Bachelor No. 2 (Or, The Last Remains of the Dodo)',
+		_List_fromArray(
+			['Aimee Mann'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Building Nothing Out Of Something',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Heartbreaker',
+		_List_fromArray(
+			['Ryan Adams'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Incredible Jazz Guitar',
+		_List_fromArray(
+			['Wes Montgomery'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Kid A',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Lift Your Skinny Fists Like Antennas to Heaven',
+		_List_fromArray(
+			['Godspeed You! Black Emperor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Natural History (Deluxe Version Remastered)',
+		_List_fromArray(
+			['I Am Kloot'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Novastar',
+		_List_fromArray(
+			['Novastar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'O Brother, Where Art Thou? (Original Motion Picture Soundtrack)',
+		_List_fromArray(
+			['Various Artists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Riding with the King',
+		_List_fromArray(
+			['Eric Clapton', 'B.B. King'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Since I Left You',
+		_List_fromArray(
+			['The Avalanches'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Stories From The City, Stories From The Sea',
+		_List_fromArray(
+			['PJ Harvey'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2000,
+		'The Moon & Antarctica',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Thirteen Tales From Urban Bohemia',
+		_List_fromArray(
+			['The Dandy Warhols'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Tourist (Remastered)',
+		_List_fromArray(
+			['St Germain'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2000,
+		'Voodoo',
+		_List_fromArray(
+			['D\'Angelo'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Amnesiac',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Asleep In The Back',
+		_List_fromArray(
+			['Elbow'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Discovery',
+		_List_fromArray(
+			['Daft Punk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'I Might Be Wrong',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Is This It',
+		_List_fromArray(
+			['The Strokes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Love And Theft',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Oh, Inverted World',
+		_List_fromArray(
+			['The Shins'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2001,
+		'Pergola',
+		_List_fromArray(
+			['JOHAN'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2001,
+		'Poses',
+		_List_fromArray(
+			['Rufus Wainwright'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Simple Things',
+		_List_fromArray(
+			['Zero 7'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Stay Human',
+		_List_fromArray(
+			['Michael Franti & Spearhead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'The National',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'The National (2021 Remaster)',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Those Who Tell the Truth Shall Die, Those Who Tell the Truth Shall Live Forever',
+		_List_fromArray(
+			['Explosions In The Sky'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2001,
+		'Used Songs (1973-1980)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'A Series of Sneaks',
+		_List_fromArray(
+			['Spoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Alice',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Alice (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'All Hail West Texas (Remastered)',
+		_List_fromArray(
+			['The Mountain Goats'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'American IV: The Man Comes Around',
+		_List_fromArray(
+			['Johnny Cash'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Blood Money',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Blood Money (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Don\'t Give Up On Me',
+		_List_fromArray(
+			['Solomon Burke'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Groeten Uit Maaiveld',
+		_List_fromArray(
+			['Acda en de Munnik'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Lost In Space',
+		_List_fromArray(
+			['Aimee Mann'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'One More Car, One More Rider (Live)',
+		_List_fromArray(
+			['Eric Clapton'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Sea Change',
+		_List_fromArray(
+			['Beck'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Songs For The Deaf',
+		_List_fromArray(
+			['Queens of the Stone Age'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Spinvis',
+		_List_fromArray(
+			['Spinvis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'The Definitive Collection',
+		_List_fromArray(
+			['Little River Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2002,
+		'Turn On The Bright Lights',
+		_List_fromArray(
+			['Interpol'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Angel Malherido',
+		_List_fromArray(
+			['El Barrio'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Chutes Too Narrow',
+		_List_fromArray(
+			['The Shins'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Donker En Licht',
+		_List_fromArray(
+			['Stef Bos'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Feast of Wire',
+		_List_fromArray(
+			['Calexico'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Hail To the Thief',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'In Time: The Best Of R.E.M. 1988-2003',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Lo mas lejos a tu lado',
+		_List_fromArray(
+			['Fito y Fitipaldis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Master And Everyone',
+		_List_fromArray(
+			['Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'NYC Man',
+		_List_fromArray(
+			['Lou Reed'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Nieuwegein Aan Zee',
+		_List_fromArray(
+			['Spinvis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Room On Fire',
+		_List_fromArray(
+			['The Strokes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Sad Songs for Dirty Lovers',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Sad Songs for Dirty Lovers (2021 Remaster)',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2003,
+		'Thirteenth Step',
+		_List_fromArray(
+			['A Perfect Circle'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Thirteenth Step - Live',
+		_List_fromArray(
+			['A Perfect Circle'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Veneer',
+		_List_fromArray(
+			['Jos√© Gonz√°lez'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Waiting for the Moon',
+		_List_fromArray(
+			['Tindersticks'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2003,
+		'Youth And Young Manhood',
+		_List_fromArray(
+			['Kings of Leon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'7 Seconds: The Best Of Youssou N\'Dour',
+		_List_fromArray(
+			['Youssou N\'Dour'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'A Song About A Girls',
+		_List_fromArray(
+			['Zita Swoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Animal Serenade',
+		_List_fromArray(
+			['Lou Reed'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Another Lonely Soul',
+		_List_fromArray(
+			['Novastar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Antics',
+		_List_fromArray(
+			['Interpol'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Baron Von Bullshit Rides Again',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Blueberry Boat',
+		_List_fromArray(
+			['The Fiery Furnaces'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Bows + Arrows',
+		_List_fromArray(
+			['The Walkmen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Cherry Tree',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Cherry Tree (2021 Remaster)',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Franz Ferdinand',
+		_List_fromArray(
+			['Franz Ferdinand'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Funeral',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Live at St. Ann\'s Warehouse',
+		_List_fromArray(
+			['Aimee Mann'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Made To Love Magic',
+		_List_fromArray(
+			['Nick Drake'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Our Endless Numbered Days',
+		_List_fromArray(
+			['Iron & Wine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Real Gone (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'The Essential Kris Kristofferson',
+		_List_fromArray(
+			['Kris Kristofferson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'Trouble',
+		_List_fromArray(
+			['Ray LaMontagne'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2004,
+		'When It Falls',
+		_List_fromArray(
+			['Zero 7'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Alligator',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Another Day',
+		_List_fromArray(
+			['Racoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Another Day (Deluxe Edition)',
+		_List_fromArray(
+			['Racoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Apologies To The Queen Mary',
+		_List_fromArray(
+			['Wolf Parade'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Black Mountain',
+		_List_fromArray(
+			['Black Mountain'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Black Mountain (10th Anniversary Deluxe Edition)',
+		_List_fromArray(
+			['Black Mountain'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Daft Punk Is Playing at My House',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Dagen Van Gras, Dagen Van Stro',
+		_List_fromArray(
+			['Spinvis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Fair and Square',
+		_List_fromArray(
+			['John Prine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Gods and Monsters',
+		_List_fromArray(
+			['I Am Kloot'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Here We Go, Stereo',
+		_List_fromArray(
+			['Racoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2005,
+		'I\'m Wide Awake, It\'s Morning',
+		_List_fromArray(
+			['Bright Eyes'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2005,
+		'Illinois',
+		_List_fromArray(
+			['Sufjan Stevens'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'LCD Soundsystem',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Lullabies To Paralyze',
+		_List_fromArray(
+			['Queens of the Stone Age'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Minimum - Maximum',
+		_List_fromArray(
+			['Kraftwerk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Naturally',
+		_List_fromArray(
+			['Sharon Jones & The Dap-Kings'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Picaresque',
+		_List_fromArray(
+			['The Decemberists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Pajaros En La Cabeza',
+		_List_fromArray(
+			['Amaral'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Secret Meeting',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Superwolf',
+		_List_fromArray(
+			['Matt Sweeney', 'Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'The Budos Band',
+		_List_fromArray(
+			['The Budos Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'The Campfire Headphase',
+		_List_fromArray(
+			['Boards of Canada'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'The Singles',
+		_List_fromArray(
+			['Basement Jaxx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'The Sunset Tree',
+		_List_fromArray(
+			['The Mountain Goats'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Till Monkeys Fly',
+		_List_fromArray(
+			['Racoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2005,
+		'Twin Cinema',
+		_List_fromArray(
+			['The New Pornographers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Are You Ready For Freddie?',
+		_List_fromArray(
+			['Freddie King'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'As',
+		_List_fromArray(
+			['Frank Boeijen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Back To Black (Deluxe Edition)',
+		_List_fromArray(
+			['Amy Winehouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Blue Note Trip 2: Sunset/Sunrise',
+		_List_fromArray(
+			['Various Artists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Dreams',
+		_List_fromArray(
+			['The Whitest Boy Alive'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Everything All The Time',
+		_List_fromArray(
+			['Band of Horses'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'I Am Not Afraid Of You And I Will Beat Your Ass',
+		_List_fromArray(
+			['Yo La Tengo'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Meds',
+		_List_fromArray(
+			['Placebo'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Modern Times',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Movements',
+		_List_fromArray(
+			['Booka Shade'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Nineteeneighties',
+		_List_fromArray(
+			['Grant-Lee Phillips'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Orphans: Brawlers, Bawlers & Bastards',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Stone Cold Ohio',
+		_List_fromArray(
+			['Little Axe'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'The Crane Wife',
+		_List_fromArray(
+			['The Decemberists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'The Eraser',
+		_List_fromArray(
+			['Thom Yorke'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'The Essential Roy Orbison',
+		_List_fromArray(
+			['Roy Orbison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2006,
+		'Whatever People Say I Am, That\'s What I\'m Not',
+		_List_fromArray(
+			['Arctic Monkeys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Alive 2007',
+		_List_fromArray(
+			['Daft Punk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'All Hour Cymbals',
+		_List_fromArray(
+			['Yeasayer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Boxer',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Country Ghetto',
+		_List_fromArray(
+			['JJ Grey', 'Mofro'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Grinderman',
+		_List_fromArray(
+			['Grinderman'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2007,
+		'In Our Nature',
+		_List_fromArray(
+			['Jose Gonzalez'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'In Rainbows',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Into The Wild (Music For The Motion Picture)',
+		_List_fromArray(
+			['Eddie Vedder'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Knives Don\'t Have Your Back',
+		_List_fromArray(
+			['Emily Haines'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Last Night of the Proms',
+		_List_fromArray(
+			['Royal Philharmonic Orchestra'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Neon Bible',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Our Love To Admire',
+		_List_fromArray(
+			['Interpol'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Release The Stars',
+		_List_fromArray(
+			['Rufus Wainwright'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Rumpelzirkus',
+		_List_fromArray(
+			['Kalabrese'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Soul Queen',
+		_List_fromArray(
+			['Aretha Franklin'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'Sound of Silver',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'The Abattoir Blues Tour (Live)',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'The Red Album',
+		_List_fromArray(
+			['Baroness'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'The Shepherd\'s Dog',
+		_List_fromArray(
+			['Iron & Wine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'The Stage Names',
+		_List_fromArray(
+			['Okkervil River'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2007,
+		'We Were Dead Before The Ship Even Sank',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'A Skin, A Night + The Virginia EP',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Aardige Jongens',
+		_List_fromArray(
+			['Boeijen Hofstede Vrienten'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Accelerate',
+		_List_fromArray(
+			['R.E.M.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Creedence Clearwater Revival - Best Of (Deluxe)',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Dig, Lazarus, Dig!!!',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Fantasy Black Channel',
+		_List_fromArray(
+			['Late of the Pier'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Fleet Foxes',
+		_List_fromArray(
+			['Fleet Foxes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Fleet Foxes (Deluxe Edition)',
+		_List_fromArray(
+			['Fleet Foxes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'For Emma, Forever Ago',
+		_List_fromArray(
+			['Bon Iver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Hercules & Love Affair',
+		_List_fromArray(
+			['Hercules & Love Affair'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'I, Flathead',
+		_List_fromArray(
+			['Ry Cooder'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Kitty Daisy & Lewis',
+		_List_fromArray(
+			['Kitty, Daisy & Lewis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Lie Down In The Light',
+		_List_fromArray(
+			['Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Shallow Grave',
+		_List_fromArray(
+			['The Tallest Man On Earth'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'The \'59 Sound',
+		_List_fromArray(
+			['The Gaslight Anthem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'The Complete Collection (Digital Box) [Standard]',
+		_List_fromArray(
+			['Creedence Clearwater Revival'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'The Midnight Organ Fight',
+		_List_fromArray(
+			['Frightened Rabbit'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'The Seldom Seen Kid',
+		_List_fromArray(
+			['Elbow'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Thriller 25 Super Deluxe Edition',
+		_List_fromArray(
+			['Michael Jackson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'Vampire Weekend',
+		_List_fromArray(
+			['Vampire Weekend'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2008,
+		'What Grabs Ya?',
+		_List_fromArray(
+			['Triggerfinger'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'45:33 Remixes',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Absynthe Minded',
+		_List_fromArray(
+			['Absynthe Minded'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Blood Bank',
+		_List_fromArray(
+			['Bon Iver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'For Your Entertainment',
+		_List_fromArray(
+			['Adam Lambert'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Glitter And Doom Live (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Gorilla Manor',
+		_List_fromArray(
+			['Local Natives'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Hometowns',
+		_List_fromArray(
+			['The Rural Alberta Advantage'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Isbells',
+		_List_fromArray(
+			['Isbells'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'It Don\'t Get No Better Than This: Essential Recordings',
+		_List_fromArray(
+			['Solomon Burke'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Live from Madison Square Garden',
+		_List_fromArray(
+			['Eric Clapton', 'Steve Winwood'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Moderat (Deluxe Version)',
+		_List_fromArray(
+			['Moderat'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Never Be Scared / Don\'t Be A Hero',
+		_List_fromArray(
+			['Moss'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2009,
+		'Reservoir',
+		_List_fromArray(
+			['Fanfarlo'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2009,
+		'Sometimes I Wish We Were An Eagle',
+		_List_fromArray(
+			['Bill Callahan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'The Best of the Black President',
+		_List_fromArray(
+			['Fela Kuti'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'The Life of the World to Come',
+		_List_fromArray(
+			['The Mountain Goats'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'The Pains of Being Pure At Heart',
+		_List_fromArray(
+			['The Pains Of Being Pure At Heart'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Tijdgeest',
+		_List_fromArray(
+			['Harry Sacksioni'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Veckatimest',
+		_List_fromArray(
+			['Grizzly Bear'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'Wait For Evolution',
+		_List_fromArray(
+			['De Staat'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2009,
+		'Wolfgang Amadeus Phoenix',
+		_List_fromArray(
+			['Phoenix'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2009,
+		'xx',
+		_List_fromArray(
+			['The xx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Adrenaline',
+		_List_fromArray(
+			['Harry Sacksioni'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Becoming A Jackal',
+		_List_fromArray(
+			['Villagers'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Before Today',
+		_List_fromArray(
+			['Ariel Pink'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Brothers',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Contra',
+		_List_fromArray(
+			['Vampire Weekend'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Cosmogramma',
+		_List_fromArray(
+			['Flying Lotus'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Familial',
+		_List_fromArray(
+			['Philip Selway'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Future Weather',
+		_List_fromArray(
+			['The War On Drugs'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Halcyon Digest',
+		_List_fromArray(
+			['Deerhunter'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'High Violet',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Hold On Tight',
+		_List_fromArray(
+			['Solomon Burke', 'De Dijk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'King of the Beach',
+		_List_fromArray(
+			['Wavves'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'London Sessions',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Mahler: Symphony No. 2, Resurrection (Live)',
+		_List_fromArray(
+			['Gustav Mahler'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Mexican Spaghetti Western (Bonus Edition)',
+		_List_fromArray(
+			['Chingon'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2010,
+		'Odd Blood',
+		_List_fromArray(
+			['Yeasayer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'On Claws',
+		_List_fromArray(
+			['I Am Oak'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Plastic Beach',
+		_List_fromArray(
+			['Gorillaz'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Seadrift Soundmachine',
+		_List_fromArray(
+			['Blaudzun'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Sometimes The Blues Is Just A Passing Bird',
+		_List_fromArray(
+			['The Tallest Man On Earth'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'The Monitor',
+		_List_fromArray(
+			['Titus Andronicus'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'The Suburbs',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2010,
+		'The Wild Hunt',
+		_List_fromArray(
+			['The Tallest Man On Earth'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'This Is Happening',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Time for Us',
+		_List_fromArray(
+			['Nicolas Jaar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2010,
+		'Total Life Forever',
+		_List_fromArray(
+			['Foals'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Apocalypse',
+		_List_fromArray(
+			['Bill Callahan'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2011,
+		'Applause',
+		_List_fromArray(
+			['Balthazar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Ashes & Fire',
+		_List_fromArray(
+			['Ryan Adams'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Bad As Me (Deluxe Edition)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Bon Iver',
+		_List_fromArray(
+			['Bon Iver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Days',
+		_List_fromArray(
+			['Real Estate'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'El Camino',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Helplessness Blues',
+		_List_fromArray(
+			['Fleet Foxes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Kaputt',
+		_List_fromArray(
+			['Destroyer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Knife Man',
+		_List_fromArray(
+			['AJJ'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Lonely Boy',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'No Time For Dreaming',
+		_List_fromArray(
+			['Charles Bradley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'No Time For Dreaming (Instrumentals)',
+		_List_fromArray(
+			['Charles Bradley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'On the Water',
+		_List_fromArray(
+			['Future Islands'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Rome',
+		_List_fromArray(
+			['Danger Mouse', 'Daniele Luppi'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Slave Ambient',
+		_List_fromArray(
+			['The War On Drugs'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Smoke Ring For My Halo',
+		_List_fromArray(
+			['Kurt Vile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'So Beautiful or So What',
+		_List_fromArray(
+			['Paul Simon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Space Is Only Noise',
+		_List_fromArray(
+			['Nicolas Jaar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'TKOL RMX 1234567',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'TOTAL',
+		_List_fromArray(
+			['New Order'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'The King of Limbs',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2011,
+		'W H O K I L L',
+		_List_fromArray(
+			['Tune-Yards'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'Wolfroy Goes To Town',
+		_List_fromArray(
+			['Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2011,
+		'build a rocket boys!',
+		_List_fromArray(
+			['Elbow'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2012,
+		'Allelujah! Don\'t Bend! Ascend!',
+		_List_fromArray(
+			['Godspeed You! Black Emperor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'An Awesome Wave',
+		_List_fromArray(
+			['alt-J'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Attack On Memory',
+		_List_fromArray(
+			['Cloud Nothings'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Boys & Girls',
+		_List_fromArray(
+			['Alabama Shakes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Broken Brights',
+		_List_fromArray(
+			['Angus Stone'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Celebration Rock',
+		_List_fromArray(
+			['Japandroids'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Cobra Juicy',
+		_List_fromArray(
+			['Black Moth Super Rainbow'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Coexist',
+		_List_fromArray(
+			['The xx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Gegroefd',
+		_List_fromArray(
+			['Alex Roeka'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Gold on the Ceiling',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Het Beste Van Peter Koelewijn',
+		_List_fromArray(
+			['Peter Koelewijn'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Jake Bugg',
+		_List_fromArray(
+			['Jake Bugg'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Kill For Love',
+		_List_fromArray(
+			['Chromatics'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Kill For Love (Deluxe)',
+		_List_fromArray(
+			['Chromatics'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Last of a Dyin\' Breed (Special Edition)',
+		_List_fromArray(
+			['Lynyrd Skynyrd'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Locked Down',
+		_List_fromArray(
+			['Dr. John'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Mr. M',
+		_List_fromArray(
+			['Lambchop'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'My Head Is An Animal',
+		_List_fromArray(
+			['Of Monsters and Men'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Port Of Morrow',
+		_List_fromArray(
+			['The Shins'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Rachmaninov: Piano Concerto No.2',
+		_List_fromArray(
+			['Sergei Rachmaninoff'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Shallow Bed (Deluxe Version)',
+		_List_fromArray(
+			['Dry the River'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Shields',
+		_List_fromArray(
+			['Grizzly Bear'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Stoalin\'',
+		_List_fromArray(
+			['Isbells'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Sweet Heart Sweet Light',
+		_List_fromArray(
+			['Spiritualized'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Swing Lo Magellan',
+		_List_fromArray(
+			['Dirty Projectors'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2012,
+		'Tempest',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'AM',
+		_List_fromArray(
+			['Arctic Monkeys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Alle Singles',
+		_List_fromArray(
+			['Acda en de Munnik'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Brothers And Sisters (Deluxe Edition)',
+		_List_fromArray(
+			['Allman Brothers Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Cupid Deluxe',
+		_List_fromArray(
+			['Blood Orange'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Dream River',
+		_List_fromArray(
+			['Bill Callahan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Fade',
+		_List_fromArray(
+			['Yo La Tengo'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Half Of Where You Live',
+		_List_fromArray(
+			['Gold Panda'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Holy Fire',
+		_List_fromArray(
+			['Foals'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'II',
+		_List_fromArray(
+			['Moderat'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'If You Wait (Deluxe Version)',
+		_List_fromArray(
+			['London Grammar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Kveikur',
+		_List_fromArray(
+			['Sigur R√≥s'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'La Leyenda Del Tiempo',
+		_List_fromArray(
+			['Camaron De La Isla'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Live from KCRW',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Mala',
+		_List_fromArray(
+			['Devendra Banhart'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Modern Vampires of the City',
+		_List_fromArray(
+			['Vampire Weekend'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2013,
+		'Pedestrian Verse',
+		_List_fromArray(
+			['Frightened Rabbit'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Push the Sky Away',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Random Access Memories',
+		_List_fromArray(
+			['Daft Punk'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Reflektor',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Set the House on Fire',
+		_List_fromArray(
+			['Moddi'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Settle',
+		_List_fromArray(
+			['Disclosure'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2013,
+		'Silence Yourself',
+		_List_fromArray(
+			['Savages'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'The Bones Of What You Believe',
+		_List_fromArray(
+			['CHVRCHES'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Trouble Will Find Me',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'We Are the 21st Century Ambassadors of Peace & Magic',
+		_List_fromArray(
+			['Foxygen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2013,
+		'Woman',
+		_List_fromArray(
+			['Rhye'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'All That Jazz, Vol. 9: Duke Ellington ‚Äì The Cotton Club Years (Remastered 2014)',
+		_List_fromArray(
+			['Duke Ellington'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Anthology',
+		_List_fromArray(
+			['Howlin\' Wolf'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Atlas',
+		_List_fromArray(
+			['Real Estate'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Badillac',
+		_List_fromArray(
+			['Together Pangea'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Bruckner: Symphony No. 8 (Robert Haas Version) [Live]',
+		_List_fromArray(
+			['Anton Bruckner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Bryce Dessner: St. Carolyn By The Sea / Jonny Greenwood: Suite From There Will Be Blood',
+		_List_fromArray(
+			['Copenhagen Phil', 'Andre de Ridder'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Caustic Love',
+		_List_fromArray(
+			['Paolo Nutini'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Caustic Love (Live and In Session)',
+		_List_fromArray(
+			['Paolo Nutini'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Emmaar',
+		_List_fromArray(
+			['Tinariwen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Here and Nowhere Else',
+		_List_fromArray(
+			['Cloud Nothings'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Kiasmos',
+		_List_fromArray(
+			['Kiasmos'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Let It Be... Naked (Remastered)',
+		_List_fromArray(
+			['The Beatles'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Live In Dublin',
+		_List_fromArray(
+			['Leonard Cohen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Lost In The Dream',
+		_List_fromArray(
+			['The War On Drugs'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Nikki Nack',
+		_List_fromArray(
+			['Tune-Yards'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Popular Problems',
+		_List_fromArray(
+			['Leonard Cohen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Salad Days',
+		_List_fromArray(
+			['Mac DeMarco'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2014,
+		'Singles',
+		_List_fromArray(
+			['Future Islands'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Spotify Sessions: Live at Sxsw 2014',
+		_List_fromArray(
+			['St. Paul & The Broken Bones'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Syro',
+		_List_fromArray(
+			['Aphex Twin'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Terms of My Surrender',
+		_List_fromArray(
+			['John Hiatt'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'They Want My Soul',
+		_List_fromArray(
+			['Spoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Turn Blue',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'Ultraviolence (Deluxe)',
+		_List_fromArray(
+			['Lana Del Rey'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'live at jodrell bank',
+		_List_fromArray(
+			['Elbow'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2014,
+		'the long goodbye (lcd soundsystem live at madison square garden)',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Afrodeezia',
+		_List_fromArray(
+			['Marcus Miller'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Asunder, Sweet and Other Distress',
+		_List_fromArray(
+			['Godspeed You! Black Emperor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Best Of',
+		_List_fromArray(
+			['Ike & Tina Turner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Billie\'s Choice',
+		_List_fromArray(
+			['Billie Holiday'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Carrie & Lowell',
+		_List_fromArray(
+			['Sufjan Stevens'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Currents',
+		_List_fromArray(
+			['Tame Impala'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Depression Cherry',
+		_List_fromArray(
+			['Beach House'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'El patio 40 Aniversario',
+		_List_fromArray(
+			['Triana'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Elaenia',
+		_List_fromArray(
+			['Floating Points'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Esencia (En Vivo En El Teatro Real)',
+		_List_fromArray(
+			['El Barrio'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Fading Frontier',
+		_List_fromArray(
+			['Deerhunter'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Filament',
+		_List_fromArray(
+			['eighth blackbird', 'Bryce Dessner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Gilles Peterson Presents : Melanie De Biasio ‚Äì No Deal Remixed',
+		_List_fromArray(
+			['Melanie De Biasio'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'High on Tulsa Heat',
+		_List_fromArray(
+			['John Moreland'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'I Love You, Honeybear',
+		_List_fromArray(
+			['Father John Misty'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'I\'m the Man to Be',
+		_List_fromArray(
+			['EL VY'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'In Colour',
+		_List_fromArray(
+			['Jamie xx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Nathaniel Rateliff & The Night Sweats',
+		_List_fromArray(
+			['Nathaniel Rateliff & The Night Sweats', 'Nathaniel Rateliff'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'No Life for Me',
+		_List_fromArray(
+			['Wavves', 'Cloud Nothings'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Return to the Moon',
+		_List_fromArray(
+			['EL VY'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Silent Ivy Hotel',
+		_List_fromArray(
+			['EL VY'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Sound & Color',
+		_List_fromArray(
+			['Alabama Shakes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Sparks',
+		_List_fromArray(
+			['Beach House'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Star Wars',
+		_List_fromArray(
+			['Wilco'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Strangers to Ourselves',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Sylva',
+		_List_fromArray(
+			['Snarky Puppy', 'Metropole Orkest'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'The Most Lamentable Tragedy',
+		_List_fromArray(
+			['Titus Andronicus'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'Traveller',
+		_List_fromArray(
+			['Chris Stapleton'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'White Water',
+		_List_fromArray(
+			['The Slow Show'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2015,
+		'b\'lieve i\'m goin down...',
+		_List_fromArray(
+			['Kurt Vile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'..It\'s Too Late to Stop Now...Volumes II, III & IV (Live)',
+		_List_fromArray(
+			['Van Morrison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'22, A Million',
+		_List_fromArray(
+			['Bon Iver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'A Moon Shaped Pool',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'A Sailor\'s Guide to Earth',
+		_List_fromArray(
+			['Sturgill Simpson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Adore Life',
+		_List_fromArray(
+			['Savages'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Amen & Goodbye',
+		_List_fromArray(
+			['Yeasayer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Are You Serious',
+		_List_fromArray(
+			['Andrew Bird'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Blackstar',
+		_List_fromArray(
+			['David Bowie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Breadcrumbs',
+		_List_fromArray(
+			['The Perennials'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Cardan',
+		_List_fromArray(
+			['Agar Agar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Changes',
+		_List_fromArray(
+			['Charles Bradley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Day of the Dead',
+		_List_fromArray(
+			['Various Artists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Daydreaming',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Fixion',
+		_List_fromArray(
+			['trentemoller'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Her Tape #1',
+		_List_fromArray(
+			['Her'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Human Performance',
+		_List_fromArray(
+			['Parquet Courts'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'I Had a Dream That You Were Mine',
+		_List_fromArray(
+			['Hamilton Leithauser', 'Rostam'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Love & Hate',
+		_List_fromArray(
+			['Michael Kiwanuka'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Michael Gielen Edition, Vol. 2: Bruckner\'s Symphonies Nos. 1-9',
+		_List_fromArray(
+			['Anton Bruckner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Miss Marionette',
+		_List_fromArray(
+			['The Perennials'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Next Thing',
+		_List_fromArray(
+			['Frankie Cosmos'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Night On the Sun',
+		_List_fromArray(
+			['Modest Mouse'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Painting of a Panic Attack (Deluxe Edition)',
+		_List_fromArray(
+			['Frightened Rabbit'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Singing Saw',
+		_List_fromArray(
+			['Kevin Morby'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Sirens',
+		_List_fromArray(
+			['Nicolas Jaar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Skeleton Tree',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Spotify Sessions',
+		_List_fromArray(
+			['Car Seat Headrest'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Stranger To Stranger',
+		_List_fromArray(
+			['Paul Simon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Teens of Denial',
+		_List_fromArray(
+			['Car Seat Headrest'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'The Ship',
+		_List_fromArray(
+			['Brian Eno'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Unsongs',
+		_List_fromArray(
+			['Moddi'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2016,
+		'Wildflower',
+		_List_fromArray(
+			['The Avalanches'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2016,
+		'You Want It Darker',
+		_List_fromArray(
+			['Leonard Cohen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'A Boy From Tupelo: The Complete 1953-1955 Recordings',
+		_List_fromArray(
+			['Elvis Presley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'A Crow Looked at Me',
+		_List_fromArray(
+			['Mount Eerie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'A Deeper Understanding',
+		_List_fromArray(
+			['The War On Drugs'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Aromanticism',
+		_List_fromArray(
+			['Moses Sumney'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Beast Epic',
+		_List_fromArray(
+			['Iron & Wine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Bhangra Pirates',
+		_List_fromArray(
+			['Red Baraat'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Big Bad Luv',
+		_List_fromArray(
+			['John Moreland'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Blurred',
+		_List_fromArray(
+			['Kiasmos'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Bruckner: Symphony No. 8',
+		_List_fromArray(
+			['Anton Bruckner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Carrie & Lowell Live',
+		_List_fromArray(
+			['Sufjan Stevens'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Crack-Up',
+		_List_fromArray(
+			['Fleet Foxes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Elwan',
+		_List_fromArray(
+			['Tinariwen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Everything Now',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Goths',
+		_List_fromArray(
+			['The Mountain Goats'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Hang',
+		_List_fromArray(
+			['Foxygen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'I Promise',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'I See You',
+		_List_fromArray(
+			['The xx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Live At My Father\'s Place, WLIR-FM Broadcast, Roslyn NY, 10th October 1977 (Remastered)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Love What Survives',
+		_List_fromArray(
+			['Mount Kimbie'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Luciferian Towers',
+		_List_fromArray(
+			['Godspeed You! Black Emperor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'OK Computer OKNOTOK 1997 2017',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'On Hold (Jamie xx Remix)',
+		_List_fromArray(
+			['The xx'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Painted Ruins',
+		_List_fromArray(
+			['Grizzly Bear'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Planetarium',
+		_List_fromArray(
+			['James McAlister', 'Bryce Dessner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Poor David\'s Almanack',
+		_List_fromArray(
+			['David Rawlings'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'R. Strauss: Le bourgeois gentilhomme Suite & Ariadne auf Naxos, Symphony-suite',
+		_List_fromArray(
+			['Richard Strauss'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'RELAXER',
+		_List_fromArray(
+			['alt-J'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Science Fiction',
+		_List_fromArray(
+			['Brand New'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Signs of Life',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Sleep Well Beast',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Tchaikovsky: Symphony No. 6 in B Minor, Op. 74 Pathetique',
+		_List_fromArray(
+			['Tchaikovsky'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'The Far Field',
+		_List_fromArray(
+			['Future Islands'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'The OOZ',
+		_List_fromArray(
+			['King Krule'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'Turn Out the Lights',
+		_List_fromArray(
+			['Julien Baker'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2017,
+		'american dream',
+		_List_fromArray(
+			['LCD Soundsystem'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'\'68 Comeback Special (50th Anniversary Edition) [Live]',
+		_List_fromArray(
+			['Elvis Presley'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'2012 - 2017',
+		_List_fromArray(
+			['Against All Logic'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'50 Years - Don\'t Stop',
+		_List_fromArray(
+			['Fleetwood Mac'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'7',
+		_List_fromArray(
+			['Beach House'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'A Brief Inquiry Into Online Relationships',
+		_List_fromArray(
+			['The 1975'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Bohemian Rhapsody (The Original Soundtrack)',
+		_List_fromArray(
+			['Queen'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Bottle It In',
+		_List_fromArray(
+			['Kurt Vile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Boxer (Live in Brussels)',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		1947,
+		'Cannot Be Satisfied: The Very Best Of Muddy Waters',
+		_List_fromArray(
+			['Muddy Waters'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Echo Collective Plays Amnesiac',
+		_List_fromArray(
+			['Echo Collective'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Freedom',
+		_List_fromArray(
+			['Amen Dunes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Hardest TIme',
+		_List_fromArray(
+			['Red Bird Hollow', 'Aaron Dessner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'I can feel you creep into my private life',
+		_List_fromArray(
+			['Tune-Yards'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Joy as an Act of Resistance.',
+		_List_fromArray(
+			['IDLES'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Medicaid Fraud Dogg',
+		_List_fromArray(
+			['Parliament'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'More Blood, More Tracks: The Bootleg Series, Vol. 14 (Sampler)',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Ordinary Corrupt Human Love',
+		_List_fromArray(
+			['Deafheaven'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'REDUXER',
+		_List_fromArray(
+			['alt-J'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Safe In The Hands of Love',
+		_List_fromArray(
+			['Yves Tumor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Singularity',
+		_List_fromArray(
+			['Jon Hopkins'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'The Tree of Forgiveness',
+		_List_fromArray(
+			['John Prine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'True Meanings',
+		_List_fromArray(
+			['Paul Weller'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2018,
+		'Your Queen Is A Reptile',
+		_List_fromArray(
+			['Sons Of Kemet'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'ANIMA',
+		_List_fromArray(
+			['Thom Yorke'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Amir (Deluxe)',
+		_List_fromArray(
+			['Tamino'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Blackwattle Caprices',
+		_List_fromArray(
+			['Jacob Cordover'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Ghosteen',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'I Am Easy to Find',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'In League with Dragons',
+		_List_fromArray(
+			['The Mountain Goats'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Juicy Sonic Magic (Live in Berkeley September 24-25 2018)',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'My Finest Work Yet',
+		_List_fromArray(
+			['Andrew Bird'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Noche Andaluza',
+		_List_fromArray(
+			['Isabel Mart√≠nez'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Norman Fucking Rockwell!',
+		_List_fromArray(
+			['Lana Del Rey'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'SOUND & FURY',
+		_List_fromArray(
+			['Sturgill Simpson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Shepherd in a Sheepskin Vest',
+		_List_fromArray(
+			['Bill Callahan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'So that you might hear me',
+		_List_fromArray(
+			['Bear\'s Den'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Tchaikovsky: Symphony No. 6 Pathetique',
+		_List_fromArray(
+			['Tchaikovsky'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Two Hands',
+		_List_fromArray(
+			['Big Thief'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Western Stars',
+		_List_fromArray(
+			['Bruce Springsteen'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2019,
+		'When We Are Inhuman',
+		_List_fromArray(
+			['Bonnie Prince Billy', 'Bryce Dessner'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'Your Capricious Soul',
+		_List_fromArray(
+			['Michael Stipe'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2019,
+		'i,i',
+		_List_fromArray(
+			['Bon Iver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'40 Melodies',
+		_List_fromArray(
+			['Ibrahim Maalouf'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'7-Inches for Planned Parenthood, Vol. 2: Pt. 2',
+		_List_fromArray(
+			['Various Artists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'7.6.9.6.',
+		_List_fromArray(
+			['Spinvis'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'A Hero\'s Death',
+		_List_fromArray(
+			['Fontaines D.C.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'AUATC',
+		_List_fromArray(
+			['Bon Iver'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'As Long As You Are',
+		_List_fromArray(
+			['Future Islands'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Best Of Paco Paco',
+		_List_fromArray(
+			['Paco Paco'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Brothers (Deluxe Remastered Anniversary Edition)',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2020,
+		'Circles',
+		_List_fromArray(
+			['Mac Miller'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Cosmic Dancer',
+		_List_fromArray(
+			['Nick Cave'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Drive to the Ocean',
+		_List_fromArray(
+			['Michael Stipe'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Gold Record',
+		_List_fromArray(
+			['Bill Callahan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Got To Be Tough',
+		_List_fromArray(
+			['Toots & The Maytals'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Guitar Works of Francisco Tarrega',
+		_List_fromArray(
+			['Francisco Tarrega', 'Philip Hemmo'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Have We Met',
+		_List_fromArray(
+			['Destroyer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Heaven To A Tortured Mind',
+		_List_fromArray(
+			['Yves Tumor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'How Lucky',
+		_List_fromArray(
+			['Kurt Vile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Idiot Prayer (Nick Cave Alone at Alexandra Palace)',
+		_List_fromArray(
+			['Nick Cave & The Bad Seeds'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'MONOVISION',
+		_List_fromArray(
+			['Ray LaMontagne'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Man from the Future',
+		_List_fromArray(
+			['Polyrhythmics'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'McCartney III',
+		_List_fromArray(
+			['Paul McCartney'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Melee',
+		_List_fromArray(
+			['Dogleg'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Mordechai',
+		_List_fromArray(
+			['Khruangbin'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Never Tear Us Apart',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'No Time For Love Like Now',
+		_List_fromArray(
+			['Michael Stipe', 'Big Red Machine'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Notes On A Conditional Form',
+		_List_fromArray(
+			['The 1975'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Prokofiev Top 10',
+		_List_fromArray(
+			['Sergei Prokofiev'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Rollin\' and Tumblin\'',
+		_List_fromArray(
+			['Eric Clapton', 'B.B. King'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Rough and Rowdy Ways',
+		_List_fromArray(
+			['Bob Dylan'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Serpentine Prison',
+		_List_fromArray(
+			['Matt Berninger'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Shore',
+		_List_fromArray(
+			['Fleet Foxes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Silver Ladders',
+		_List_fromArray(
+			['Mary Lattimore'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Song Machine, Season One: Strange Timez (Deluxe)',
+		_List_fromArray(
+			['Gorillaz'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2020,
+		'Songs for Pierre Chuvin',
+		_List_fromArray(
+			['The Mountain Goats'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Speed, Sound, Lonely KV (ep)',
+		_List_fromArray(
+			['Kurt Vile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Starting Over',
+		_List_fromArray(
+			['Chris Stapleton'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Suite: April 2020',
+		_List_fromArray(
+			['Brad Mehldau'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Summerlong',
+		_List_fromArray(
+			['Rose City Band'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'The New Abnormal',
+		_List_fromArray(
+			['The Strokes'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Untitled (Black Is)',
+		_List_fromArray(
+			['SAULT'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'Untitled (Rise)',
+		_List_fromArray(
+			['SAULT'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2020,
+		'instrumentals',
+		_List_fromArray(
+			['Adrianne Lenker'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2020,
+		'songs',
+		_List_fromArray(
+			['Adrianne Lenker'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Afrique Victime',
+		_List_fromArray(
+			['Mdou Moctar'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Any Shape You Take',
+		_List_fromArray(
+			['Indigo De Souza'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2021,
+		'Black To The Future',
+		_List_fromArray(
+			['Sons Of Kemet'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Blind Date Party',
+		_List_fromArray(
+			['Bill Callahan', 'Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Delta Kream',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'I Dont Live Here Anymore',
+		_List_fromArray(
+			['The War On Drugs'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Ignorance',
+		_List_fromArray(
+			['The Weather Station'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Imagine',
+		_List_fromArray(
+			['Tommy Emmanuel'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'KID A MNESIA',
+		_List_fromArray(
+			['Radiohead'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Licorice Pizza (Original Motion Picture Soundtrack)',
+		_List_fromArray(
+			['Various Artists'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Raise The Roof (Deluxe Edition)',
+		_List_fromArray(
+			['Robert Plant', 'Alison Krauss'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Rufus Wainwright and Amsterdam Sinfonietta (Live)',
+		_List_fromArray(
+			['Rufus Wainwright', 'Amsterdam Sinfonietta'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Serpentine Prison (Deluxe Edition)',
+		_List_fromArray(
+			['Matt Berninger'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Spijt Is Iets Voor Later',
+		_List_fromArray(
+			['Racoon'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Superwolves',
+		_List_fromArray(
+			['Matt Sweeney', 'Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'The Ballad of Dood & Juanita',
+		_List_fromArray(
+			['Sturgill Simpson'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'The Monitor (2021 Remaster)',
+		_List_fromArray(
+			['Titus Andronicus'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Vulture Prince',
+		_List_fromArray(
+			['Arooj Aftab'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2021,
+		'Welfare Jazz',
+		_List_fromArray(
+			['Viagra Boys'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2022,
+		'A Light for Attracting Attention',
+		_List_fromArray(
+			['The Smile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Alpha Zulu',
+		_List_fromArray(
+			['Phoenix'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Ants From Up There',
+		_List_fromArray(
+			['Black Country, New Road'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2022,
+		'Atemporal',
+		_List_fromArray(
+			['El Barrio'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Blood Money (Anniversary Edition)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Blue Rev',
+		_List_fromArray(
+			['Alvvays'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Boat Songs',
+		_List_fromArray(
+			['MJ Lenderman'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Dragon New Warm Mountain I Believe In You',
+		_List_fromArray(
+			['Big Thief'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Dropout Boogie',
+		_List_fromArray(
+			['The Black Keys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Formentera',
+		_List_fromArray(
+			['Metric'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'GOLD',
+		_List_fromArray(
+			['Alabaster DePlume'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'God\'s Away On Business (Live)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'King Of Hearts',
+		_List_fromArray(
+			['Roy Orbison'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'LABYRINTHITIS',
+		_List_fromArray(
+			['Destroyer'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Last Night In The Bittersweet',
+		_List_fromArray(
+			['Paolo Nutini'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Mendelssohn: Song without Words, Op. 109',
+		_List_fromArray(
+			['Felix Mendelssohn', 'Sheku Kanneh-Mason'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Skinty Fia',
+		_List_fromArray(
+			['Fontaines D.C.'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Sons Of',
+		_List_fromArray(
+			['Sam Prekop', 'John McEntire'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Table Top Joe (Live)',
+		_List_fromArray(
+			['Tom Waits'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'The Car',
+		_List_fromArray(
+			['Arctic Monkeys'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'The Smile (Live at Montreux Jazz Festival, July 2022)',
+		_List_fromArray(
+			['The Smile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Things Are Great',
+		_List_fromArray(
+			['Band of Horses'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Underwater',
+		_List_fromArray(
+			['Ludovico Einaudi'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'WE',
+		_List_fromArray(
+			['Arcade Fire'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2022,
+		'Weather Alive',
+		_List_fromArray(
+			['Beth Orton'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Weird Goodbyes (feat. Bon Iver)',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2022,
+		'Windveren',
+		_List_fromArray(
+			['Boudewijn de Groot'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Bending Hectic',
+		_List_fromArray(
+			['The Smile'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'First Two Pages of Frankenstein',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Folkocracy',
+		_List_fromArray(
+			['Rufus Wainwright'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Hackney Diamonds',
+		_List_fromArray(
+			['The Rolling Stones'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Javelin',
+		_List_fromArray(
+			['Sufjan Stevens'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Keeping Secrets Will Destroy You',
+		_List_fromArray(
+			['Bonnie Prince Billy'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Laugh Track',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2023,
+		'My Back Was A Bridge For You To Cross',
+		_List_fromArray(
+			['ANOHNI'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2023,
+		'Praise A Lord Who Chews But Which Does Not Consume (Or Simply, Hot Between Worlds)',
+		_List_fromArray(
+			['Yves Tumor'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Rufus Wainwright (25th Anniversary Edition)',
+		_List_fromArray(
+			['Rufus Wainwright'])),
+		A4(
+		$author$project$Tops$entry,
+		'',
+		2023,
+		'Tropic Morning News',
+		_List_fromArray(
+			['The National'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2024,
+		'Heavy Metal',
+		_List_fromArray(
+			['Cameron Winter'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2025,
+		'Getting Killed',
+		_List_fromArray(
+			['Geese'])),
+		A4(
+		$author$project$Tops$entry,
+		'x',
+		2025,
+		'New threats from the soul',
+		_List_fromArray(
+			['Ryan Davis & the Roadhouse band']))
+	]);
 var $author$project$Gui$correctDecade = F2(
 	function (dec, year) {
 		if (dec.$ === 'None') {
@@ -5319,14 +11868,25 @@ var $author$project$Gui$correctDecade = F2(
 			}
 		}
 	});
+var $author$project$Gui$matchesMark = F2(
+	function (m, am) {
+		if (m.$ === 'Nothing') {
+			return true;
+		} else {
+			var m_ = m.a;
+			return _Utils_eq(
+				$elm$core$Maybe$Just(m_),
+				am);
+		}
+	});
 var $elm$core$Basics$not = _Basics_not;
 var $elm$core$String$toLower = _String_toLower;
-var $author$project$Gui$applyFilter = F3(
-	function (q, dec, album) {
+var $author$project$Gui$applyFilter = F4(
+	function (q, dec, m, album) {
 		var t_ = $elm$core$String$toLower(album.title);
 		var q_ = $elm$core$String$toLower(q);
 		var a_ = $elm$core$String$toLower(album.artist);
-		return (!A2($author$project$Gui$correctDecade, dec, album.year)) ? false : ($elm$core$String$isEmpty(q_) ? true : (A2($elm$core$String$contains, q_, a_) || A2($elm$core$String$contains, q_, t_)));
+		return (!A2($author$project$Gui$correctDecade, dec, album.year)) ? false : ((!A2($author$project$Gui$matchesMark, m, album.mark)) ? false : ($elm$core$String$isEmpty(q_) ? true : (A2($elm$core$String$contains, q_, a_) || A2($elm$core$String$contains, q_, t_))));
 	});
 var $elm$core$List$sortBy = _List_sortBy;
 var $author$project$Gui$do_single_sort = F2(
@@ -5357,7 +11917,7 @@ var $author$project$Gui$do_single_sort = F2(
 	});
 var $author$project$Gui$do_sorting = F2(
 	function (sb, l) {
-		return A3($elm$core$List$foldl, $author$project$Gui$do_single_sort, l, sb);
+		return A3($elm$core$List$foldr, $author$project$Gui$do_single_sort, l, sb);
 	});
 var $author$project$Gui$MsgSortBy = function (a) {
 	return {$: 'MsgSortBy', a: a};
@@ -5482,123 +12042,16 @@ var $author$project$Gui$showTable = function (ts) {
 				A2($elm$core$List$map, $author$project$Gui$showTrend, ts))
 			]));
 };
-var $author$project$Tops$entry = F3(
-	function (t, a, y) {
-		return {artist: a, title: t, year: y};
-	});
-var $author$project$Tops$top2021 = _List_fromArray(
-	[
-		A3($author$project$Tops$entry, 'Abbey Road', 'The Beatles', 1969),
-		A3($author$project$Tops$entry, 'Thriller', 'Michael Jackson', 1982),
-		A3($author$project$Tops$entry, 'Back in Black', 'AC/DC', 1980),
-		A3($author$project$Tops$entry, 'Rumours', 'Fleetwood Mac', 1977),
-		A3($author$project$Tops$entry, 'The Dark Side of the Moon', 'Pink Floyd', 1973),
-		A3($author$project$Tops$entry, 'Hotel California', 'Eagles', 1976),
-		A3($author$project$Tops$entry, 'Nevermind', 'Nirvana', 1991),
-		A3($author$project$Tops$entry, 'Born to Run', 'Bruce Springsteen', 1975),
-		A3($author$project$Tops$entry, 'Purple Rain', 'Prince', 1984),
-		A3($author$project$Tops$entry, 'The Wall', 'Pink Floyd', 1979),
-		A3($author$project$Tops$entry, 'OK Computer', 'Radiohead', 1997),
-		A3($author$project$Tops$entry, 'The Joshua Tree', 'U2', 1987),
-		A3($author$project$Tops$entry, 'Led Zeppelin IV', 'Led Zeppelin', 1971),
-		A3($author$project$Tops$entry, 'Sgt. Pepper’s Lonely Hearts Club Band', 'The Beatles', 1967),
-		A3($author$project$Tops$entry, '1989', 'Taylor Swift', 2014),
-		A3($author$project$Tops$entry, 'Lemonade', 'Beyoncé', 2016),
-		A3($author$project$Tops$entry, 'To Pimp a Butterfly', 'Kendrick Lamar', 2015),
-		A3($author$project$Tops$entry, 'The Miseducation of Lauryn Hill', 'Lauryn Hill', 1998),
-		A3($author$project$Tops$entry, 'Good Kid  M.A.A.D City', 'Kendrick Lamar', 2012),
-		A3($author$project$Tops$entry, '21', 'Adele', 2011),
-		A3($author$project$Tops$entry, 'American Idiot', 'Green Day', 2004),
-		A3($author$project$Tops$entry, 'Appetite for Destruction', 'Guns N’ Roses', 1987),
-		A3($author$project$Tops$entry, 'The Eminem Show', 'Eminem', 2002),
-		A3($author$project$Tops$entry, 'Fearless', 'Taylor Swift', 2008),
-		A3($author$project$Tops$entry, 'The College Dropout', 'Kanye West', 2004),
-		A3($author$project$Tops$entry, 'DAMN.', 'Kendrick Lamar', 2017),
-		A3($author$project$Tops$entry, 'Random Access Memories', 'Daft Punk', 2013),
-		A3($author$project$Tops$entry, 'Hybrid Theory', 'Linkin Park', 2000),
-		A3($author$project$Tops$entry, 'A Night at the Opera', 'Queen', 1975),
-		A3($author$project$Tops$entry, 'Nevermind the Bollocks  Here’s the Sex Pistols', 'Sex Pistols', 1977),
-		A3($author$project$Tops$entry, 'Ten', 'Pearl Jam', 1991),
-		A3($author$project$Tops$entry, 'Bad', 'Michael Jackson', 1987),
-		A3($author$project$Tops$entry, 'The Blueprint', 'Jay-Z', 2001),
-		A3($author$project$Tops$entry, 'Channel Orange', 'Frank Ocean', 2012),
-		A3($author$project$Tops$entry, 'After Hours', 'The Weeknd', 2020),
-		A3($author$project$Tops$entry, 'Future Nostalgia', 'Dua Lipa', 2020),
-		A3($author$project$Tops$entry, 'Folklore', 'Taylor Swift', 2020),
-		A3($author$project$Tops$entry, 'Blonde', 'Frank Ocean', 2016),
-		A3($author$project$Tops$entry, '25', 'Adele', 2015),
-		A3($author$project$Tops$entry, 'Ride the Lightning', 'Metallica', 1984),
-		A3($author$project$Tops$entry, 'Master of Puppets', 'Metallica', 1986),
-		A3($author$project$Tops$entry, 'The Chronic', 'Dr. Dre', 1992),
-		A3($author$project$Tops$entry, 'Back to Black', 'Amy Winehouse', 2006),
-		A3($author$project$Tops$entry, 'Ctrl', 'SZA', 2017),
-		A3($author$project$Tops$entry, 'In Rainbows', 'Radiohead', 2007),
-		A3($author$project$Tops$entry, 'Yeezus', 'Kanye West', 2013),
-		A3($author$project$Tops$entry, 'The Fame', 'Lady Gaga', 2008),
-		A3($author$project$Tops$entry, 'Born This Way', 'Lady Gaga', 2011),
-		A3($author$project$Tops$entry, 'Astroworld', 'Travis Scott', 2018),
-		A3($author$project$Tops$entry, 'When We All Fall Asleep  Where Do We Go?', 'Billie Eilish', 2019),
-		A3($author$project$Tops$entry, 'My Beautiful Dark Twisted Fantasy', 'Kanye West', 2010),
-		A3($author$project$Tops$entry, 'Hounds of Love', 'Kate Bush', 1985),
-		A3($author$project$Tops$entry, 'Graceland', 'Paul Simon', 1986),
-		A3($author$project$Tops$entry, 'The Bends', 'Radiohead', 1995),
-		A3($author$project$Tops$entry, 'Elephant', 'The White Stripes', 2003),
-		A3($author$project$Tops$entry, 'Discovery', 'Daft Punk', 2001),
-		A3($author$project$Tops$entry, 'Confessions', 'Usher', 2004),
-		A3($author$project$Tops$entry, 'The Marshall Mathers LP', 'Eminem', 2000),
-		A3($author$project$Tops$entry, 'Stankonia', 'OutKast', 2000),
-		A3($author$project$Tops$entry, 'Songs in the Key of Life', 'Stevie Wonder', 1976),
-		A3($author$project$Tops$entry, 'Blue', 'Joni Mitchell', 1971),
-		A3($author$project$Tops$entry, 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars', 'David Bowie', 1972),
-		A3($author$project$Tops$entry, 'Born in the U.S.A.', 'Bruce Springsteen', 1984),
-		A3($author$project$Tops$entry, 'A Rush of Blood to the Head', 'Coldplay', 2002),
-		A3($author$project$Tops$entry, 'Graduation', 'Kanye West', 2007),
-		A3($author$project$Tops$entry, 'ANTI', 'Rihanna', 2016),
-		A3($author$project$Tops$entry, 'The Suburbs', 'Arcade Fire', 2010),
-		A3($author$project$Tops$entry, 'Watch the Throne', 'Jay-Z & Kanye West', 2011),
-		A3($author$project$Tops$entry, 'The Fame Monster', 'Lady Gaga', 2009),
-		A3($author$project$Tops$entry, 'Good News', 'Megan Thee Stallion', 2020),
-		A3($author$project$Tops$entry, 'Plastic Hearts', 'Miley Cyrus', 2020),
-		A3($author$project$Tops$entry, '24K Magic', 'Bruno Mars', 2016),
-		A3($author$project$Tops$entry, 'The Stranger', 'Billy Joel', 1977),
-		A3($author$project$Tops$entry, 'Tapestry', 'Carole King', 1971),
-		A3($author$project$Tops$entry, 'A Love Supreme', 'John Coltrane', 1965),
-		A3($author$project$Tops$entry, 'Illmatic', 'Nas', 1994),
-		A3($author$project$Tops$entry, 'Ready to Die', 'The Notorious B.I.G.', 1994),
-		A3($author$project$Tops$entry, 'The Velvet Underground & Nico', 'The Velvet Underground', 1967),
-		A3($author$project$Tops$entry, 'Jagged Little Pill', 'Alanis Morissette', 1995),
-		A3($author$project$Tops$entry, 'Siamese Dream', 'The Smashing Pumpkins', 1993),
-		A3($author$project$Tops$entry, 'Kid A', 'Radiohead', 2000),
-		A3($author$project$Tops$entry, 'Melodrama', 'Lorde', 2017),
-		A3($author$project$Tops$entry, 'The Colour and the Shape', 'Foo Fighters', 1997),
-		A3($author$project$Tops$entry, 'Californication', 'Red Hot Chili Peppers', 1999),
-		A3($author$project$Tops$entry, 'Dirty Mind', 'Prince', 1980),
-		A3($author$project$Tops$entry, 'Exodus', 'Bob Marley & The Wailers', 1977),
-		A3($author$project$Tops$entry, 'Dookie', 'Green Day', 1994),
-		A3($author$project$Tops$entry, 'The Low End Theory', 'A Tribe Called Quest', 1991),
-		A3($author$project$Tops$entry, 'The Idler Wheel…', 'Fiona Apple', 2012),
-		A3($author$project$Tops$entry, 'The Black Album', 'Metallica', 1991),
-		A3($author$project$Tops$entry, 'Currents', 'Tame Impala', 2015),
-		A3($author$project$Tops$entry, 'The Queen Is Dead', 'The Smiths', 1986),
-		A3($author$project$Tops$entry, 'Because the Internet', 'Childish Gambino', 2013),
-		A3($author$project$Tops$entry, 'DAMNED', 'Black Sabbath', 1981),
-		A3($author$project$Tops$entry, 'Parachutes', 'Coldplay', 2000),
-		A3($author$project$Tops$entry, 'AM', 'Arctic Monkeys', 2013),
-		A3($author$project$Tops$entry, 'In the Lonely Hour', 'Sam Smith', 2014),
-		A3($author$project$Tops$entry, 'A Seat at the Table', 'Solange', 2016),
-		A3($author$project$Tops$entry, 'The ArchAndroid', 'Janelle Monáe', 2010),
-		A3($author$project$Tops$entry, 'High Violet', 'The National', 2010)
-	]);
-var $author$project$Gui$albumsTable = F3(
-	function (sb, dec, q) {
+var $author$project$Gui$albumsTable = F4(
+	function (sb, dec, m, q) {
 		return $author$project$Gui$showTable(
 			A2(
 				$author$project$Gui$do_sorting,
 				sb,
 				A2(
 					$elm$core$List$filter,
-					A2($author$project$Gui$applyFilter, q, dec),
-					$author$project$Tops$top2021)));
+					A3($author$project$Gui$applyFilter, q, dec, m),
+					$author$project$Tops$albums)));
 	});
 var $elm$html$Html$input = _VirtualDom_node('input');
 var $elm$html$Html$Events$alwaysStop = function (x) {
@@ -5762,10 +12215,39 @@ var $author$project$Gui$view = function (model) {
 									[
 										$elm$html$Html$text('20-..')
 									]))
+							])),
+						A2(
+						$elm$html$Html$select,
+						_List_fromArray(
+							[
+								$elm$html$Html$Events$onInput($author$project$Gui$MarkSelectChanged)
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('none')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('None')
+									])),
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('x')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Marked')
+									]))
 							]))
 					])),
 				A2($elm$html$Html$p, _List_Nil, _List_Nil),
-				A3($author$project$Gui$albumsTable, model.sortState, model.decade, model.query)
+				A4($author$project$Gui$albumsTable, model.sortState, model.decade, model.mark, model.query)
 			]));
 };
 var $author$project$Gui$main = $elm$browser$Browser$sandbox(
