@@ -1,0 +1,29 @@
+/* <link rel="stylesheet" href="style.css"> */
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 95%;
+}
+
+@media screen and (min-width: 800px) {
+  table {
+  width: 750px;}
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+}
+
+td {
+  text-align: left;
+}
+
+
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
