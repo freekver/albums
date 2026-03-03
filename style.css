@@ -18,16 +18,6 @@ table
   width: 95%;
 }
 
-@media screen and (min-width: 800px) {
-  table {
-  width: 750px;}
-}
-
-@media screen and (min-width: 1000px) {
-  table {
-  width: 950px;}
-}
-
 @media screen and (min-width: 1200px) {
   table {
   width: 1150px;}
