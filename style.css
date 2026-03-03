@@ -1,7 +1,18 @@
 /* <link rel="stylesheet" href="style.css"> */
 
 <style>
-table {
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+input, select, table {
+  font-family: 'Inter';
+  font-size: 22px;
+}
+
+table
+ {
   border-collapse: collapse;
   border-spacing: 0;
   width: 95%;
