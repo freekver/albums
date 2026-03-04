@@ -5299,16 +5299,17 @@ var $author$project$Gui$update = F2(
 							{decade: $author$project$Gui$None});
 				}
 			default:
-				if (msg.a === 'x') {
-					return _Utils_update(
-						model,
-						{
-							mark: $elm$core$Maybe$Just('x')
-						});
-				} else {
+				if (msg.a === 'none') {
 					return _Utils_update(
 						model,
 						{mark: $elm$core$Maybe$Nothing});
+				} else {
+					var s = msg.a;
+					return _Utils_update(
+						model,
+						{
+							mark: $elm$core$Maybe$Just(s)
+						});
 				}
 		}
 	});
@@ -5367,6 +5368,13 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Billie Holiday'])),
 		A4(
 		$author$project$Tops$entry,
+		'j',
+		1958,
+		'The Atomic Mr Basie',
+		_List_fromArray(
+			['Count Basie'])),
+		A4(
+		$author$project$Tops$entry,
 		'',
 		1959,
 		'Kind Of Blue',
@@ -5374,14 +5382,14 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Miles Davis'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'j',
 		1959,
 		'Mingus Ah Um',
 		_List_fromArray(
 			['Charles Mingus'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1959,
 		'What\'d I Say',
 		_List_fromArray(
@@ -5395,16 +5403,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Gil Evans', 'Miles Davis'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1960,
 		'The Soul Of Ike & Tina Turner',
-		_List_fromArray(
-			['Ike & Tina Turner'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1960,
-		'The Soul of Ike and Tina',
 		_List_fromArray(
 			['Ike & Tina Turner'])),
 		A4(
@@ -5437,7 +5438,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['The Beatles'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1964,
 		'Ain\'t That Good News',
 		_List_fromArray(
@@ -5472,7 +5473,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Bob Dylan'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'j',
 		1965,
 		'A Love Supreme',
 		_List_fromArray(
@@ -5493,7 +5494,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Bob Dylan'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1965,
 		'Otis Blue',
 		_List_fromArray(
@@ -5556,7 +5557,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Wilson Pickett'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1966,
 		'Wild Is The Wind',
 		_List_fromArray(
@@ -5570,7 +5571,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Ural Thomas'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1967,
 		'Forever Changes (2015 Remaster)',
 		_List_fromArray(
@@ -5626,28 +5627,28 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Pink Floyd'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1968,
 		'Astral Weeks',
 		_List_fromArray(
 			['Van Morrison'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1968,
 		'At Folsom Prison',
 		_List_fromArray(
 			['Johnny Cash'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1968,
 		'Bookends',
 		_List_fromArray(
 			['Simon & Garfunkel'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'b',
 		1968,
 		'Cheap Thrills',
 		_List_fromArray(
@@ -5661,7 +5662,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Creedence Clearwater Revival'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1968,
 		'Electric Ladyland',
 		_List_fromArray(
@@ -5703,7 +5704,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Louis Armstrong'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1969,
 		'Abbey Road (Remastered)',
 		_List_fromArray(
@@ -5801,7 +5802,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Fleetwood Mac'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1969,
 		'Townes Van Zandt',
 		_List_fromArray(
@@ -5836,23 +5837,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Miles Davis'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1970,
 		'Cosmo\'s Factory',
-		_List_fromArray(
-			['Creedence Clearwater Revival'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1970,
-		'Cosmo\'s Factory (40th Anniversary Edition)',
-		_List_fromArray(
-			['Creedence Clearwater Revival'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1970,
-		'Cosmo\'s Factory (Expanded Edition)',
 		_List_fromArray(
 			['Creedence Clearwater Revival'])),
 		A4(
@@ -5864,7 +5851,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Curtis Mayfield'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1970,
 		'Deja Vu',
 		_List_fromArray(
@@ -5878,7 +5865,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Funkadelic'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1970,
 		'Funkadelic',
 		_List_fromArray(
@@ -5941,14 +5928,14 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Yusuf / Cat Stevens'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1971,
 		'4 Way Street',
 		_List_fromArray(
 			['Crosby, Stills, Nash & Young'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1971,
 		'At Fillmore East',
 		_List_fromArray(
@@ -5997,30 +5984,23 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Pink Floyd'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1971,
 		'Sticky Fingers (Remastered)',
 		_List_fromArray(
 			['The Rolling Stones'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1971,
 		'There\'s A Riot Goin\' On (Expanded Edition)',
 		_List_fromArray(
 			['Sly & The Family Stone'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1971,
-		'What\'s Going On (Remastered w/Bonus Tracks)',
-		_List_fromArray(
-			['Marvin Gaye'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1971,
-		'What\'s Going On - 40th Anniversary (Super Deluxe)',
+		'What\'s Going On',
 		_List_fromArray(
 			['Marvin Gaye'])),
 		A4(
@@ -6039,7 +6019,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Vicente Fern√°ndez'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1972,
 		'Elvis: As Recorded at Madison Square Garden (Live)',
 		_List_fromArray(
@@ -6060,21 +6040,21 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Al Green'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1972,
 		'Let\'s Stay Together',
 		_List_fromArray(
 			['Al Green'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1972,
 		'Naturally',
 		_List_fromArray(
 			['J.J. Cale'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'j',
 		1972,
 		'On The Corner',
 		_List_fromArray(
@@ -6116,7 +6096,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Wim Sonneveld'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1972,
 		'Superfly',
 		_List_fromArray(
@@ -6165,7 +6145,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Herbie Hancock'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1973,
 		'Innervisions',
 		_List_fromArray(
@@ -6193,9 +6173,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Pink Floyd'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1974,
-		'..It\'s Too Late to Stop Now...Volume I',
+		'..It\'s Too Late to Stop Now…',
 		_List_fromArray(
 			['Van Morrison'])),
 		A4(
@@ -6235,7 +6215,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Tom Waits'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1974,
 		'They Say I\'m Different',
 		_List_fromArray(
@@ -6256,7 +6236,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['John Denver'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1975,
 		'Blood On The Tracks',
 		_List_fromArray(
@@ -6279,13 +6259,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		$author$project$Tops$entry,
 		'',
 		1975,
-		'Fleetwood Mac (2017 Remaster)',
-		_List_fromArray(
-			['Fleetwood Mac'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1975,
 		'Harry Sacksioni: Gitaar',
 		_List_fromArray(
 			['Harry Sacksioni'])),
@@ -6298,14 +6271,14 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Tom Waits'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		's',
 		1975,
 		'The Heat Is On',
 		_List_fromArray(
 			['The Isley Brothers'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'j',
 		1975,
 		'The Koln Concert',
 		_List_fromArray(
@@ -6368,7 +6341,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['David Bowie'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1976,
 		'Small Change',
 		_List_fromArray(
@@ -6403,14 +6376,14 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Pink Floyd'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1977,
 		'Marquee Moon',
 		_List_fromArray(
 			['Television'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1977,
 		'Rumours',
 		_List_fromArray(
@@ -6445,7 +6418,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Tom Waits'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1978,
 		'Dire Straits (Remastered)',
 		_List_fromArray(
@@ -6552,13 +6525,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		$author$project$Tops$entry,
 		'',
 		1979,
-		'The Wall [2011 - Remaster] (2011 Remastered Version)',
-		_List_fromArray(
-			['Pink Floyd'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1979,
 		'Tusk (2015 Remaster)',
 		_List_fromArray(
 			['Fleetwood Mac'])),
@@ -6567,13 +6533,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		'',
 		1979,
 		'Unknown Pleasures',
-		_List_fromArray(
-			['Joy Division'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1979,
-		'Unknown Pleasures (Collector\'s Edition)',
 		_List_fromArray(
 			['Joy Division'])),
 		A4(
@@ -6602,13 +6561,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		'',
 		1980,
 		'Heartattack And Vine',
-		_List_fromArray(
-			['Tom Waits'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1980,
-		'Heartattack And Vine (Remastered)',
 		_List_fromArray(
 			['Tom Waits'])),
 		A4(
@@ -6683,7 +6635,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Dire Straits'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1982,
 		'Nebraska',
 		_List_fromArray(
@@ -6725,7 +6677,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Frank Zappa', 'London Symphony Orchestra'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1983,
 		'Murmur',
 		_List_fromArray(
@@ -6781,16 +6733,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['U2'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1984,
 		'Alchemy: Dire Straits Live',
-		_List_fromArray(
-			['Dire Straits'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1984,
-		'Alchemy: Dire Straits Live (Remastered)',
 		_List_fromArray(
 			['Dire Straits'])),
 		A4(
@@ -6809,7 +6754,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Minutemen'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1984,
 		'Let It Be (Expanded)',
 		_List_fromArray(
@@ -6830,7 +6775,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['R.E.M.'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1984,
 		'Stop Making Sense (Live)',
 		_List_fromArray(
@@ -6886,7 +6831,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Tom Waits'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1986,
 		'Blood And Chocolate',
 		_List_fromArray(
@@ -6970,7 +6915,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Depeche Mode'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1987,
 		'Sister',
 		_List_fromArray(
@@ -6984,16 +6929,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Fleetwood Mac'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1987,
 		'The Joshua Tree',
-		_List_fromArray(
-			['U2'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1987,
-		'The Joshua Tree (Remastered)',
 		_List_fromArray(
 			['U2'])),
 		A4(
@@ -7166,14 +7104,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['R.E.M.'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
-		1991,
-		'Proud Mary: The Best Of Ike & Tina Turner',
-		_List_fromArray(
-			['Ike & Tina Turner'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
+		'g',
 		1991,
 		'Ten',
 		_List_fromArray(
@@ -7201,7 +7132,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Guns N\' Roses'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1991,
 		'Use Your Illusion II',
 		_List_fromArray(
@@ -7217,26 +7148,19 @@ var $author$project$Tops$albums = _List_fromArray(
 		$author$project$Tops$entry,
 		'',
 		1992,
-		'Bone Machine (2023 Remaster)',
-		_List_fromArray(
-			['Tom Waits'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1992,
 		'Gorky',
 		_List_fromArray(
 			['Gorki'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1992,
 		'Live At Wembley Stadium',
 		_List_fromArray(
 			['Queen'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1992,
 		'Palomine',
 		_List_fromArray(
@@ -7250,7 +7174,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Guided By Voices'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'e',
 		1992,
 		'Selected Ambient Works 85-92',
 		_List_fromArray(
@@ -7264,7 +7188,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Pavement'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1992,
 		'Unplugged (Live)',
 		_List_fromArray(
@@ -7299,7 +7223,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Radiohead'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		1993,
 		'Siamese Dream (2011 - Remaster)',
 		_List_fromArray(
@@ -7383,7 +7307,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Frank Boeijen'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'e',
 		1994,
 		'Dubnobasswithmyheadman (20th Anniversary Remaster)',
 		_List_fromArray(
@@ -7425,14 +7349,14 @@ var $author$project$Tops$albums = _List_fromArray(
 			['David Bowie'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		1994,
 		'MTV Unplugged In New York',
 		_List_fromArray(
 			['Nirvana'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		1994,
 		'Out Of Range',
 		_List_fromArray(
@@ -7516,7 +7440,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Queen'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'h',
 		1995,
 		'Maxinquaye',
 		_List_fromArray(
@@ -7775,7 +7699,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Massive Attack'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'e',
 		1998,
 		'Moon Safari',
 		_List_fromArray(
@@ -7848,13 +7772,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		'',
 		1999,
 		'Mule Variations',
-		_List_fromArray(
-			['Tom Waits'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		1999,
-		'Mule Variations (Remastered)',
 		_List_fromArray(
 			['Tom Waits'])),
 		A4(
@@ -7950,9 +7867,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Godspeed You! Black Emperor'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		2000,
-		'Natural History (Deluxe Version Remastered)',
+		'Natural History',
 		_List_fromArray(
 			['I Am Kloot'])),
 		A4(
@@ -8106,13 +8023,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		$author$project$Tops$entry,
 		'',
 		2001,
-		'The National (2021 Remaster)',
-		_List_fromArray(
-			['The National'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		2001,
 		'Those Who Tell the Truth Shall Die, Those Who Tell the Truth Shall Live Forever',
 		_List_fromArray(
 			['Explosions In The Sky'])),
@@ -8132,16 +8042,9 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Spoon'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		2002,
 		'Alice',
-		_List_fromArray(
-			['Tom Waits'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		2002,
-		'Alice (Remastered)',
 		_List_fromArray(
 			['Tom Waits'])),
 		A4(
@@ -8169,13 +8072,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		$author$project$Tops$entry,
 		'',
 		2002,
-		'Blood Money (Remastered)',
-		_List_fromArray(
-			['Tom Waits'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		2002,
 		'Don\'t Give Up On Me',
 		_List_fromArray(
 			['Solomon Burke'])),
@@ -8195,7 +8091,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Aimee Mann'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		2002,
 		'One More Car, One More Rider (Live)',
 		_List_fromArray(
@@ -8244,7 +8140,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['El Barrio'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		2003,
 		'Chutes Too Narrow',
 		_List_fromArray(
@@ -8335,7 +8231,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['A Perfect Circle'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		2003,
 		'Thirteenth Step - Live',
 		_List_fromArray(
@@ -8398,7 +8294,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Interpol'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		2004,
 		'Baron Von Bullshit Rides Again',
 		_List_fromArray(
@@ -8422,13 +8318,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		'',
 		2004,
 		'Cherry Tree',
-		_List_fromArray(
-			['The National'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		2004,
-		'Cherry Tree (2021 Remaster)',
 		_List_fromArray(
 			['The National'])),
 		A4(
@@ -8776,7 +8665,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Little Axe'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		2006,
 		'The Crane Wife',
 		_List_fromArray(
@@ -8818,7 +8707,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Yeasayer'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'g',
 		2007,
 		'Boxer',
 		_List_fromArray(
@@ -9002,13 +8891,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		$author$project$Tops$entry,
 		'',
 		2008,
-		'Fleet Foxes (Deluxe Edition)',
-		_List_fromArray(
-			['Fleet Foxes'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		2008,
 		'For Emma, Forever Ago',
 		_List_fromArray(
 			['Bon Iver'])),
@@ -9054,13 +8936,6 @@ var $author$project$Tops$albums = _List_fromArray(
 		'The \'59 Sound',
 		_List_fromArray(
 			['The Gaslight Anthem'])),
-		A4(
-		$author$project$Tops$entry,
-		'',
-		2008,
-		'The Complete Collection (Digital Box) [Standard]',
-		_List_fromArray(
-			['Creedence Clearwater Revival'])),
 		A4(
 		$author$project$Tops$entry,
 		'',
@@ -9336,7 +9211,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Wavves'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'l',
 		2010,
 		'London Sessions',
 		_List_fromArray(
@@ -10932,7 +10807,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Tune-Yards'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'm',
 		2018,
 		'Joy as an Act of Resistance.',
 		_List_fromArray(
@@ -10981,7 +10856,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Jon Hopkins'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'c',
 		2018,
 		'The Tree of Forgiveness',
 		_List_fromArray(
@@ -11062,7 +10937,7 @@ var $author$project$Tops$albums = _List_fromArray(
 		2019,
 		'Noche Andaluza',
 		_List_fromArray(
-			['Isabel Mart√≠nez'])),
+			['Isabel Martinez'])),
 		A4(
 		$author$project$Tops$entry,
 		'',
@@ -11156,7 +11031,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Spinvis'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		2020,
 		'A Hero\'s Death',
 		_List_fromArray(
@@ -11191,7 +11066,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['The Black Keys'])),
 		A4(
 		$author$project$Tops$entry,
-		'x',
+		'xh',
 		2020,
 		'Circles',
 		_List_fromArray(
@@ -11450,7 +11325,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Indigo De Souza'])),
 		A4(
 		$author$project$Tops$entry,
-		'x',
+		'xj',
 		2021,
 		'Black To The Future',
 		_List_fromArray(
@@ -11541,7 +11416,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Matt Sweeney', 'Bonnie Prince Billy'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'c',
 		2021,
 		'The Ballad of Dood & Juanita',
 		_List_fromArray(
@@ -11562,7 +11437,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Arooj Aftab'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'r',
 		2021,
 		'Welfare Jazz',
 		_List_fromArray(
@@ -11583,7 +11458,7 @@ var $author$project$Tops$albums = _List_fromArray(
 			['Phoenix'])),
 		A4(
 		$author$project$Tops$entry,
-		'',
+		'x',
 		2022,
 		'Ants From Up There',
 		_List_fromArray(
@@ -11853,7 +11728,21 @@ var $author$project$Tops$albums = _List_fromArray(
 		2025,
 		'New threats from the soul',
 		_List_fromArray(
-			['Ryan Davis & the Roadhouse band']))
+			['Ryan Davis & the Roadhouse band'])),
+		A4(
+		$author$project$Tops$entry,
+		'g',
+		1976,
+		'Zoot Allures',
+		_List_fromArray(
+			['Frank Zappa'])),
+		A4(
+		$author$project$Tops$entry,
+		'l',
+		1971,
+		'Live at Massey Hall',
+		_List_fromArray(
+			['Neil Young']))
 	]);
 var $author$project$Gui$correctDecade = F2(
 	function (dec, year) {
@@ -11870,13 +11759,19 @@ var $author$project$Gui$correctDecade = F2(
 	});
 var $author$project$Gui$matchesMark = F2(
 	function (m, am) {
-		if (m.$ === 'Nothing') {
+		var _v0 = _Utils_Tuple2(m, am);
+		if (_v0.a.$ === 'Nothing') {
+			var _v1 = _v0.a;
 			return true;
 		} else {
-			var m_ = m.a;
-			return _Utils_eq(
-				$elm$core$Maybe$Just(m_),
-				am);
+			if (_v0.b.$ === 'Nothing') {
+				var _v2 = _v0.b;
+				return false;
+			} else {
+				var m_ = _v0.a.a;
+				var am_ = _v0.b.a;
+				return A2($elm$core$String$contains, m_, am_);
+			}
 		}
 	});
 var $elm$core$Basics$not = _Basics_not;
@@ -11917,7 +11812,16 @@ var $author$project$Gui$do_single_sort = F2(
 	});
 var $author$project$Gui$do_sorting = F2(
 	function (sb, l) {
-		return A3($elm$core$List$foldr, $author$project$Gui$do_single_sort, l, sb);
+		if (!l.b) {
+			return A2(
+				$elm$core$List$sortBy,
+				function ($) {
+					return $.year;
+				},
+				l);
+		} else {
+			return A3($elm$core$List$foldr, $author$project$Gui$do_single_sort, l, sb);
+		}
 	});
 var $author$project$Gui$MsgSortBy = function (a) {
 	return {$: 'MsgSortBy', a: a};
@@ -12233,6 +12137,46 @@ var $author$project$Gui$view = function (model) {
 								_List_fromArray(
 									[
 										$elm$html$Html$text('None')
+									])),
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('l')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Live')
+									])),
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('g')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Gigant')
+									])),
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('j')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Jazz')
+									])),
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('s')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Soul')
 									])),
 								A2(
 								$elm$html$Html$option,

@@ -1,0 +1,4 @@
+*.csv
+src/index.html
+*.swp
+.DS_Store
