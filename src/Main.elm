@@ -46,9 +46,9 @@ view model =
             [ onInput MarkSelectChanged ]
             [ option [ value "none"    ] [ text "None" ]
             , option [ value "l" ]       [ text "Live" ]
-            , option [ value "g" ]       [ text "Gigant" ]
             , option [ value "j" ]       [ text "Jazz" ]
-            , option [ value "s" ]       [ text "Soul" ]
+            , option [ value "s" ]       [ text "Soul/Funk" ]
+            , option [ value "g" ]       [ text "Gigant" ]
             , option [ value "x" ]       [ text "Marked" ]
             ]
            ]
@@ -128,17 +128,17 @@ update msg model =
   case msg of
     MsgSortBy sb -> { model | sortState = sb :: (List.filter (\sb_ -> sb_ /= sb) model.sortState) }
     Query str -> { model | query = str }
-    SelectChanged "early"   -> { model | decade = Decade 1900 }
-    SelectChanged "dec1960" -> { model | decade = Decade 1960 }
-    SelectChanged "dec1970" -> { model | decade = Decade 1970 }
-    SelectChanged "dec1980" -> { model | decade = Decade 1980 }
-    SelectChanged "dec1990" -> { model | decade = Decade 1990 }
-    SelectChanged "dec2000" -> { model | decade = Decade 2000 }
-    SelectChanged "dec2010" -> { model | decade = Decade 2010 }
-    SelectChanged "dec2020" -> { model | decade = Decade 2020 }
-    SelectChanged _         -> { model | decade = None }
+    SelectChanged "early"    -> { model | decade = Decade 1900 }
+    SelectChanged "dec1960"  -> { model | decade = Decade 1960 }
+    SelectChanged "dec1970"  -> { model | decade = Decade 1970 }
+    SelectChanged "dec1980"  -> { model | decade = Decade 1980 }
+    SelectChanged "dec1990"  -> { model | decade = Decade 1990 }
+    SelectChanged "dec2000"  -> { model | decade = Decade 2000 }
+    SelectChanged "dec2010"  -> { model | decade = Decade 2010 }
+    SelectChanged "dec2020"  -> { model | decade = Decade 2020 }
+    SelectChanged _          -> { model | decade = None }
     MarkSelectChanged "none" -> { model | mark = Nothing }
-    MarkSelectChanged s     -> { model  | mark = Just s }
+    MarkSelectChanged s      -> { model  | mark = Just s }
 
 
 
