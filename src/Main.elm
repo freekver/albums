@@ -48,6 +48,7 @@ view model =
             , option [ value "l" ]       [ text "Live" ]
             , option [ value "j" ]       [ text "Jazz" ]
             , option [ value "s" ]       [ text "Soul/Funk" ]
+            , option [ value "w" ]       [ text "Singer-Songwriter" ]
             , option [ value "g" ]       [ text "Gigant" ]
             , option [ value "x" ]       [ text "Marked" ]
             ]
