@@ -1,13 +1,14 @@
 module Albums exposing (albums,Album)
 
 import List
+import Regex exposing (Regex)
 
 type alias Album = { title : String, artist : String, year : Int, mark : (Maybe String) }
 
 
 
 
-entry m y t a = { title = t, artist = get_head a, year = y, mark = mk_mark m }
+entry m y t a = { title = mk_title t, artist = get_head a, year = y, mark = mk_mark m }
 
 get_head l =
   case l of
@@ -16,6 +17,21 @@ get_head l =
 
 mk_mark m = if m == "" then Nothing else Just m
 
+mk_title : String -> String
+mk_title t =
+  case String.split "(" t of
+    []      -> t
+    [_]     -> t
+    (s::ss) ->
+      case String.split ")" (String.join "" ss) of
+        []  -> t
+        [_] -> t
+        (s_::ss_) -> s ++ (if remove_between_parentheses s_ then "" else "(" ++ s_ ++ ")") ++ String.join "" ss_
+
+
+remove_between_parentheses s = 
+  let s_ = String.toLower s in
+    String.contains "remaster" s_ || String.contains "expanded" s_ || String.contains "deluxe" s_ || String.contains "edition" s_
 
 albums = List.sortBy .year
   [ entry "b" 1937 "King Of The Delta Blues Singers" ["Robert Johnson"]
@@ -25,7 +41,7 @@ albums = List.sortBy .year
   , entry "j" 1959 "Kind Of Blue" ["Miles Davis"]
   , entry "j" 1959 "Mingus Ah Um" ["Charles Mingus"]
   , entry "s" 1959 "What'd I Say" ["Ray Charles"]
-  , entry "j" 1960 "Sketches of Spain" ["Gil Evans","Miles Davis"]
+  , entry "j" 1960 "Sketches of Spain" ["Miles Davis"]
   , entry "s" 1960 "The Soul Of Ike & Tina Turner" ["Ike & Tina Turner"]
   , entry "s" 1961 "Genius + Soul = Jazz" ["Ray Charles"]
   , entry "w" 1963 "In Dreams" ["Roy Orbison"]
@@ -130,7 +146,6 @@ albums = List.sortBy .year
   , entry "" 1972 "Transformer" ["Lou Reed"]
   , entry "" 1973 "Berlin" ["Lou Reed"]
   , entry "" 1973 "Closing Time" ["Tom Waits"]
-  , entry "" 1973 "Closing Time (Remastered)" ["Tom Waits"]
   , entry "" 1973 "Head Hunters" ["Herbie Hancock"]
   , entry "g" 1973 "Innervisions" ["Stevie Wonder"]
   , entry "" 1973 "Prokofiev: Romeo and Juliet" ["Sergei Prokofiev"]
@@ -303,7 +318,7 @@ albums = List.sortBy .year
   , entry "" 1994 "Let Love In (2011 Remastered Version)" ["Nick Cave & The Bad Seeds"]
   , entry "l" 1994 "Live in Santa Monica '72" ["David Bowie"]
   , entry "l" 1994 "MTV Unplugged In New York" ["Nirvana"]
-  , entry "x" 1994 "Out Of Range" ["Ani DiFranco"]
+  , entry "xw" 1994 "Out Of Range" ["Ani DiFranco"]
   , entry "" 1994 "The Great Subconscious Club" ["K's Choice"]
   , entry "" 1994 "Throwing Copper" ["Live"]
   , entry "" 1994 "Vitalogy" ["Pearl Jam"]
@@ -350,7 +365,7 @@ albums = List.sortBy .year
   , entry "" 1998 "American Water" ["Silver Jews"]
   , entry "" 1998 "Cocoon Crash" ["K's Choice"]
   , entry "" 1998 "I Paint Pictures On A Wedding Dress" ["Zita Swoon"]
-  , entry "" 1998 "I See A Darkness" ["Bonnie Prince Billy"]
+  , entry "w" 1998 "I See A Darkness" ["Bonnie Prince Billy"]
   , entry "" 1998 "Mezzanine" ["Massive Attack"]
   , entry "e" 1998 "Moon Safari" ["Air"]
   , entry "" 1998 "Music Has The Right To Children" ["Boards of Canada"]
@@ -940,4 +955,5 @@ albums = List.sortBy .year
   , entry "j" 1959 "Everybody Diggs Bill Evans" ["Bill Evans"]
   , entry "j" 2024 "The way out of easy" ["Jeff Parker"]
   , entry "sl" 1963 "Live at the Harlem Square Club" ["Sam Cooke"]
-  , entry "s" 2010 "You are not alone" ["Mavis Staples"] ]
+  , entry "s" 2010 "You are not alone" ["Mavis Staples"]
+  , entry "e" 2005 "Forever Faithless - The Greatest Hits" ["Faithless"] ]

@@ -5334,12 +5334,49 @@ var $author$project$Albums$get_head = function (l) {
 var $author$project$Albums$mk_mark = function (m) {
 	return (m === '') ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(m);
 };
+var $elm$core$String$toLower = _String_toLower;
+var $author$project$Albums$remove_between_parentheses = function (s) {
+	var s_ = $elm$core$String$toLower(s);
+	return A2($elm$core$String$contains, 'remaster', s_) || (A2($elm$core$String$contains, 'expanded', s_) || (A2($elm$core$String$contains, 'deluxe', s_) || A2($elm$core$String$contains, 'edition', s_)));
+};
+var $author$project$Albums$mk_title = function (t) {
+	var _v0 = A2($elm$core$String$split, '(', t);
+	if (!_v0.b) {
+		return t;
+	} else {
+		if (!_v0.b.b) {
+			return t;
+		} else {
+			var s = _v0.a;
+			var ss = _v0.b;
+			var _v1 = A2(
+				$elm$core$String$split,
+				')',
+				A2($elm$core$String$join, '', ss));
+			if (!_v1.b) {
+				return t;
+			} else {
+				if (!_v1.b.b) {
+					return t;
+				} else {
+					var s_ = _v1.a;
+					var ss_ = _v1.b;
+					return _Utils_ap(
+						s,
+						_Utils_ap(
+							$author$project$Albums$remove_between_parentheses(s_) ? '' : ('(' + (s_ + ')')),
+							A2($elm$core$String$join, '', ss_)));
+				}
+			}
+		}
+	}
+};
 var $author$project$Albums$entry = F4(
 	function (m, y, t, a) {
 		return {
 			artist: $author$project$Albums$get_head(a),
 			mark: $author$project$Albums$mk_mark(m),
-			title: t,
+			title: $author$project$Albums$mk_title(t),
 			year: y
 		};
 	});
@@ -5406,7 +5443,7 @@ var $author$project$Albums$albums = A2(
 			1960,
 			'Sketches of Spain',
 			_List_fromArray(
-				['Gil Evans', 'Miles Davis'])),
+				['Miles Davis'])),
 			A4(
 			$author$project$Albums$entry,
 			's',
@@ -6133,13 +6170,6 @@ var $author$project$Albums$albums = A2(
 			'',
 			1973,
 			'Closing Time',
-			_List_fromArray(
-				['Tom Waits'])),
-			A4(
-			$author$project$Albums$entry,
-			'',
-			1973,
-			'Closing Time (Remastered)',
 			_List_fromArray(
 				['Tom Waits'])),
 			A4(
@@ -7348,7 +7378,7 @@ var $author$project$Albums$albums = A2(
 				['Nirvana'])),
 			A4(
 			$author$project$Albums$entry,
-			'x',
+			'xw',
 			1994,
 			'Out Of Range',
 			_List_fromArray(
@@ -7677,7 +7707,7 @@ var $author$project$Albums$albums = A2(
 				['Zita Swoon'])),
 			A4(
 			$author$project$Albums$entry,
-			'',
+			'w',
 			1998,
 			'I See A Darkness',
 			_List_fromArray(
@@ -11811,7 +11841,14 @@ var $author$project$Albums$albums = A2(
 			2010,
 			'You are not alone',
 			_List_fromArray(
-				['Mavis Staples']))
+				['Mavis Staples'])),
+			A4(
+			$author$project$Albums$entry,
+			'e',
+			2005,
+			'Forever Faithless - The Greatest Hits',
+			_List_fromArray(
+				['Faithless']))
 		]));
 var $author$project$Main$correctDecade = F2(
 	function (dec, year) {
@@ -11844,7 +11881,6 @@ var $author$project$Main$matchesMark = F2(
 		}
 	});
 var $elm$core$Basics$not = _Basics_not;
-var $elm$core$String$toLower = _String_toLower;
 var $author$project$Main$applyFilter = F4(
 	function (q, dec, m, album) {
 		var t_ = $elm$core$String$toLower(album.title);
