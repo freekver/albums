@@ -5322,15 +5322,6 @@ var $author$project$Main$Query = function (a) {
 var $author$project$Main$SelectChanged = function (a) {
 	return {$: 'SelectChanged', a: a};
 };
-var $author$project$Albums$get_head = function (l) {
-	if (!l.b) {
-		return '';
-	} else {
-		var x = l.a;
-		var xs = l.b;
-		return x;
-	}
-};
 var $author$project$Albums$mk_mark = function (m) {
 	return (m === '') ? $elm$core$Maybe$Nothing : $elm$core$Maybe$Just(m);
 };
@@ -5374,7 +5365,7 @@ var $author$project$Albums$mk_title = function (t) {
 var $author$project$Albums$entry = F4(
 	function (m, y, t, a) {
 		return {
-			artist: $author$project$Albums$get_head(a),
+			artist: A2($elm$core$String$join, ' & ', a),
 			mark: $author$project$Albums$mk_mark(m),
 			title: $author$project$Albums$mk_title(t),
 			year: y
@@ -5691,7 +5682,7 @@ var $author$project$Albums$albums = A2(
 				['Simon & Garfunkel'])),
 			A4(
 			$author$project$Albums$entry,
-			'b',
+			's',
 			1968,
 			'Cheap Thrills',
 			_List_fromArray(
@@ -9843,8 +9834,8 @@ var $author$project$Albums$albums = A2(
 			A4(
 			$author$project$Albums$entry,
 			'b',
-			2014,
-			'Anthology',
+			1958,
+			'Moanin\' in the midnight',
 			_List_fromArray(
 				['Howlin\' Wolf'])),
 			A4(
@@ -10746,8 +10737,8 @@ var $author$project$Albums$albums = A2(
 			A4(
 			$author$project$Albums$entry,
 			'b',
-			1947,
-			'Cannot Be Satisfied: The Very Best Of Muddy Waters',
+			1977,
+			'Hard Again',
 			_List_fromArray(
 				['Muddy Waters'])),
 			A4(
@@ -11846,9 +11837,44 @@ var $author$project$Albums$albums = A2(
 			$author$project$Albums$entry,
 			'e',
 			2005,
-			'Forever Faithless - The Greatest Hits',
+			'Forever Faithless – The Greatest Hits',
 			_List_fromArray(
-				['Faithless']))
+				['Faithless'])),
+			A4(
+			$author$project$Albums$entry,
+			'b',
+			1966,
+			'The Real Folk Blues',
+			_List_fromArray(
+				['John Lee Hooker'])),
+			A4(
+			$author$project$Albums$entry,
+			'b',
+			1966,
+			'Blues Breakers',
+			_List_fromArray(
+				['John Mayall & the Blues Breakers', 'Eric Clapton'])),
+			A4(
+			$author$project$Albums$entry,
+			'b',
+			1972,
+			'Boomer’s Story',
+			_List_fromArray(
+				['Ry Cooder'])),
+			A4(
+			$author$project$Albums$entry,
+			'b',
+			1968,
+			'The Progressive Blues Experiment',
+			_List_fromArray(
+				['Johnny Winter'])),
+			A4(
+			$author$project$Albums$entry,
+			'b',
+			1983,
+			'Texas Flood',
+			_List_fromArray(
+				['Stephie Ray Vaughn']))
 		]));
 var $author$project$Main$correctDecade = F2(
 	function (dec, year) {
@@ -12261,6 +12287,16 @@ var $author$project$Main$view = function (model) {
 								_List_fromArray(
 									[
 										$elm$html$Html$text('Jazz')
+									])),
+								A2(
+								$elm$html$Html$option,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$value('b')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Blues')
 									])),
 								A2(
 								$elm$html$Html$option,

@@ -8,7 +8,7 @@ type alias Album = { title : String, artist : String, year : Int, mark : (Maybe 
 
 
 
-entry m y t a = { title = mk_title t, artist = get_head a, year = y, mark = mk_mark m }
+entry m y t a = { title = mk_title t, artist = String.join " & " a, year = y, mark = mk_mark m }
 
 get_head l =
   case l of
@@ -77,7 +77,7 @@ albums = List.sortBy .year
   , entry "g" 1968 "Astral Weeks" ["Van Morrison"]
   , entry "gl" 1968 "At Folsom Prison" ["Johnny Cash"]
   , entry "g" 1968 "Bookends" ["Simon & Garfunkel"]
-  , entry "b" 1968 "Cheap Thrills" ["Big Brother & The Holding Company","Janis Joplin"]
+  , entry "s" 1968 "Cheap Thrills" ["Big Brother & The Holding Company","Janis Joplin"]
   , entry "" 1968 "Creedence Clearwater Revival (Expanded Edition)" ["Creedence Clearwater Revival"]
   , entry "g" 1968 "Electric Ladyland" ["Jimi Hendrix"]
   , entry "" 1968 "Music From Big Pink (Remastered)" ["The Band"]
@@ -670,7 +670,7 @@ albums = List.sortBy .year
   , entry "" 2013 "We Are the 21st Century Ambassadors of Peace & Magic" ["Foxygen"]
   , entry "" 2013 "Woman" ["Rhye"]
   , entry "j" 1956 "Ellington at Newport" ["Duke Ellington"]
-  , entry "b" 2014 "Anthology" ["Howlin' Wolf"]
+  , entry "b" 1958 "Moanin' in the midnight" ["Howlin' Wolf"]
   , entry "" 2014 "Atlas" ["Real Estate"]
   , entry "" 2014 "Badillac" ["Together Pangea"]
   , entry "" 2014 "Bruckner: Symphony No. 8 (Robert Haas Version) [Live]" ["Anton Bruckner"]
@@ -799,7 +799,7 @@ albums = List.sortBy .year
   , entry "" 2018 "A Brief Inquiry Into Online Relationships" ["The 1975"]
   , entry "" 2018 "Bottle It In" ["Kurt Vile"]
   , entry "l" 2018 "Boxer (Live in Brussels)" ["The National"]
-  , entry "b" 1947 "Cannot Be Satisfied: The Very Best Of Muddy Waters" ["Muddy Waters"]
+  , entry "b" 1977 "Hard Again" ["Muddy Waters"]
   , entry "x" 2018 "Echo Collective Plays Amnesiac" ["Echo Collective"]
   , entry "" 2018 "Freedom" ["Amen Dunes"]
   , entry "" 2018 "Hardest TIme" ["Red Bird Hollow","Aaron Dessner"]
@@ -956,4 +956,9 @@ albums = List.sortBy .year
   , entry "j" 2024 "The way out of easy" ["Jeff Parker"]
   , entry "sl" 1963 "Live at the Harlem Square Club" ["Sam Cooke"]
   , entry "s" 2010 "You are not alone" ["Mavis Staples"]
-  , entry "e" 2005 "Forever Faithless - The Greatest Hits" ["Faithless"] ]
+  , entry "e" 2005 "Forever Faithless – The Greatest Hits" ["Faithless"]
+  , entry "b" 1966 "The Real Folk Blues" ["John Lee Hooker"]
+  , entry "b" 1966 "Blues Breakers" ["John Mayall & the Blues Breakers","Eric Clapton"]
+  , entry "b" 1972 "Boomer’s Story" ["Ry Cooder"]
+  , entry "b" 1968 "The Progressive Blues Experiment" ["Johnny Winter"]
+  , entry "b" 1983 "Texas Flood" ["Stephie Ray Vaughn"] ]
